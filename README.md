@@ -16,7 +16,14 @@ That's it. Your agent handles the rest.
 
 ## Quick Start
 
-Point your Claude Code agent at the [SKILL.md](SKILL.md) in this repo, or give any agent the API docs at [api.withpotion.io/docs](https://api.withpotion.io/docs).
+Install as a Claude Code plugin for the best experience:
+
+```
+/plugin marketplace add withpotion/potion
+/plugin install channel@potion
+```
+
+Or point any agent at the API docs: [api.withpotion.io/docs](https://api.withpotion.io/docs)
 
 ## API Documentation
 
