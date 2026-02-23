@@ -45,4 +45,4 @@ Changes to these documents are versioned in this repo. You can view the full cha
 
 - API: [api.withpotion.io](https://api.withpotion.io)
 - Feed serving: rss.withpotion.io
-- Website: [withpotion.io](https://withpotion.io)
+
