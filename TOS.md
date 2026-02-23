@@ -16,8 +16,7 @@ Fahrstr. 217
 40221 Dusseldorf, Germany
 
 Managing Director: Christo Wilken
-Email: hello@withpotion.io
-Phone: +49 172 767 7643
+Email: christo@withpotion.io
 Commercial Register: Amtsgericht Dusseldorf, HRB 287814
 VAT ID: DE364316497
 
@@ -110,7 +109,7 @@ We are not liable for indirect, incidental, consequential, or punitive damages.
 
 ## 10. Termination
 
-**By you**: Stop using the API at any time. Cancel your Plus subscription via the billing portal. You may request deletion of your account and data by emailing hello@withpotion.io.
+**By you**: Stop using the API at any time. Cancel your Plus subscription via the billing portal. You may request deletion of your account and data by emailing christo@withpotion.io.
 
 **By us**: We may suspend or terminate your account if you violate these terms. We will give reasonable notice where practical, but reserve the right to act immediately for serious violations.
 
@@ -140,7 +139,7 @@ For consumers in the EU: you may have the right to use alternative dispute resol
 
 For questions about these terms, data requests, or account issues:
 
-Email: hello@withpotion.io
+Email: christo@withpotion.io
 
 ---
 
@@ -154,8 +153,7 @@ Fahrstr. 217
 Germany
 
 Vertreten durch: Christo Wilken
-Telefon: +49 172 767 7643
-E-Mail: hello@withpotion.io
+E-Mail: christo@withpotion.io
 
 **Registereintrag:**
 Eintragung im Handelsregister.
