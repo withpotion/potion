@@ -31,10 +31,12 @@ Full OpenAPI documentation with Swagger UI: [api.withpotion.io/docs](https://api
 
 ## Example Use Cases
 
-- **Email digest**: Agent reads your emails, creates a TTS audio summary, adds to your morning feed
-- **News briefing**: Agent crawls the web for your interests, generates a personalized audio briefing each night
-- **Podcast curation**: Agent picks episodes from other podcasts and assembles a custom feed of just the ones you'd like
+- **Email digest**: Agent reads your emails, creates a TTS audio summary, adds it to your morning feed - listen on your commute
+- **News briefing**: Agent crawls the web for your interests, generates a personalized audio briefing each night for your morning
+- **Podcast curation**: Agent picks episodes from other podcasts and adds them to a custom feed of just the ones you'd like
 - **Research digest**: Agent monitors arxiv for your niche, adds audio summaries of new papers
+- **Competitor intelligence**: Agent watches competitor blogs, product updates, and job postings, synthesizes a weekly audio briefing
+- **Notification triage**: Instead of 50 push notifications a day, agent distills emails, calendar changes, and alerts into one daily audio summary you check when you want to
 
 ## Legal
 
