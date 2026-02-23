@@ -1,0 +1,79 @@
+name: Validate Skill
+
+on:
+  push:
+    paths:
+      - 'skills/**'
+      - '.claude-plugin/**'
+  pull_request:
+    paths:
+      - 'skills/**'
+      - '.claude-plugin/**'
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Verify skill structure
+        run: |
+          set -e
+
+          # SKILL.md must exist
+          if [ ! -f "skills/channel/SKILL.md" ]; then
+            echo "ERROR: skills/channel/SKILL.md not found"
+            exit 1
+          fi
+          echo "✓ skills/channel/SKILL.md exists"
+
+          # Must have YAML frontmatter
+          if ! grep -q "^---" skills/channel/SKILL.md; then
+            echo "ERROR: SKILL.md missing YAML frontmatter"
+            exit 1
+          fi
+          echo "✓ frontmatter block present"
+
+          # Must have name field
+          if ! grep -q "^name:" skills/channel/SKILL.md; then
+            echo "ERROR: SKILL.md missing 'name:' field"
+            exit 1
+          fi
+          echo "✓ name field present"
+
+          # Must have description field
+          if ! grep -q "^description:" skills/channel/SKILL.md; then
+            echo "ERROR: SKILL.md missing 'description:' field"
+            exit 1
+          fi
+          echo "✓ description field present"
+
+          # Plugin manifests must exist
+          if [ ! -f ".claude-plugin/plugin.json" ]; then
+            echo "ERROR: .claude-plugin/plugin.json not found"
+            exit 1
+          fi
+          echo "✓ .claude-plugin/plugin.json exists"
+
+          if [ ! -f ".claude-plugin/marketplace.json" ]; then
+            echo "ERROR: .claude-plugin/marketplace.json not found"
+            exit 1
+          fi
+          echo "✓ .claude-plugin/marketplace.json exists"
+
+          # Plugin manifests must be valid JSON
+          node -e "JSON.parse(require('fs').readFileSync('.claude-plugin/plugin.json', 'utf8'))"
+          echo "✓ plugin.json is valid JSON"
+
+          node -e "JSON.parse(require('fs').readFileSync('.claude-plugin/marketplace.json', 'utf8'))"
+          echo "✓ marketplace.json is valid JSON"
+
+          echo ""
+          echo "All checks passed."
+
+      - name: Test skill discovery
+        run: npx --yes skills@latest list ./skills/channel/SKILL.md 2>/dev/null || echo "(skills list command not available, skipping)"

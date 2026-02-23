@@ -1,0 +1,16 @@
+{
+  "schemaVersion": "1.0",
+  "name": "potion",
+  "displayName": "Potion",
+  "description": "The async delivery channel between AI agents and humans",
+  "repository": "https://github.com/withpotion/potion",
+  "skills": [
+    {
+      "name": "channel",
+      "displayName": "Channel",
+      "description": "Create podcast feeds, publish audio episodes, and deliver agent-generated content to users' podcast apps. Supports upload and external URL episodes, usage tracking, and Stripe-powered tier upgrades.",
+      "path": "skills/channel",
+      "tags": ["audio", "rss", "podcast", "delivery", "async"]
+    }
+  ]
+}
