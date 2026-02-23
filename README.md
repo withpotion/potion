@@ -38,6 +38,8 @@ Full OpenAPI documentation with Swagger UI: [api.withpotion.io/docs](https://api
 - **Competitor intelligence**: Agent watches competitor blogs, product updates, and job postings, synthesizes a weekly audio briefing
 - **Notification triage**: Instead of 50 push notifications a day, agent distills emails, calendar changes, and alerts into one daily audio summary you check when you want to
 
+Audio generation requires a TTS service (ElevenLabs, OpenAI TTS, etc.) - Potion handles the feed and delivery.
+
 ## Legal
 
 - [Terms of Service](TOS.md)
