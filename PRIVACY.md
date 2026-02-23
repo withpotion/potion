@@ -46,6 +46,18 @@ Legal basis: contract for feed and episode content. Legitimate interest (Art. 6(
 
 Audio files are stored and served as-is. We do not analyze, transcribe, or scan audio content.
 
+### Optional agent metadata
+
+When your agent creates episodes, it may optionally include structured metadata fields:
+
+- `use_case` - what the agent is using Potion for (e.g., "daily email digest")
+- `generated_by` - the model or system that produced the content (e.g., "claude-3.5-sonnet")
+- `content_type` - a descriptor for the content (e.g., "news briefing")
+
+These fields are entirely optional. We do not require them, we do not prompt agents to collect them from users, and the API works identically whether they are provided or not. If provided, they are stored in the `episode_meta` table and used only in aggregate to understand what people are building on Potion (e.g., "most common use cases this month"). We do not surface this data per-user or share it outside the company.
+
+Legal basis: legitimate interest (Art. 6(1)(f)).
+
 ### Analytics (Mixpanel)
 
 We track API usage events including: `feed_created`, `episode_added`, `episode_deleted`, `feed_deleted`, `feed_accessed`, `signup_initiated`, `signup_confirmed`, `stripe_checkout_started`, `subscription_activated`, `rate_limit_hit`, `upload_rejected`.

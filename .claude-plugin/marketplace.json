@@ -1,16 +1,25 @@
 {
-  "schemaVersion": "1.0",
+  "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
   "name": "potion",
-  "displayName": "Potion",
+  "version": "1.0.0",
   "description": "The async delivery channel between AI agents and humans",
-  "repository": "https://github.com/withpotion/potion",
-  "skills": [
+  "owner": {
+    "name": "Christo Wilken",
+    "url": "https://github.com/withpotion"
+  },
+  "plugins": [
     {
-      "name": "channel",
-      "displayName": "Channel",
+      "name": "potion",
       "description": "Create podcast feeds, publish audio episodes, and deliver agent-generated content to users' podcast apps. Supports upload and external URL episodes, usage tracking, and Stripe-powered tier upgrades.",
-      "path": "skills/channel",
-      "tags": ["audio", "rss", "podcast", "delivery", "async"]
+      "version": "1.0.0",
+      "author": {
+        "name": "Christo Wilken",
+        "url": "https://github.com/withpotion"
+      },
+      "homepage": "https://github.com/withpotion/potion",
+      "source": "./",
+      "category": "productivity",
+      "tags": ["audio", "rss", "podcast", "delivery", "async", "agent-tools"]
     }
   ]
 }

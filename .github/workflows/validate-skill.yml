@@ -75,5 +75,59 @@ jobs:
           echo ""
           echo "All checks passed."
 
+      - name: Validate marketplace.json schema
+        run: |
+          set -e
+
+          node -e "
+            const m = JSON.parse(require('fs').readFileSync('.claude-plugin/marketplace.json', 'utf8'));
+
+            // name must be a string
+            if (!m.name || typeof m.name !== 'string') {
+              console.error('ERROR: marketplace.json missing required \"name\" string');
+              process.exit(1);
+            }
+            console.log('✓ marketplace name: ' + m.name);
+
+            // owner must be an object with a name
+            if (!m.owner || typeof m.owner !== 'object') {
+              console.error('ERROR: marketplace.json missing required \"owner\" object');
+              process.exit(1);
+            }
+            if (!m.owner.name || typeof m.owner.name !== 'string') {
+              console.error('ERROR: marketplace.json owner.name must be a non-empty string');
+              process.exit(1);
+            }
+            console.log('✓ owner object valid');
+
+            // plugins must be a non-empty array
+            if (!Array.isArray(m.plugins) || m.plugins.length === 0) {
+              console.error('ERROR: marketplace.json missing required \"plugins\" array (or it is empty)');
+              process.exit(1);
+            }
+            console.log('✓ plugins array present (' + m.plugins.length + ' plugin(s))');
+
+            // Each plugin must have name, description, source
+            for (const [i, p] of m.plugins.entries()) {
+              if (!p.name) { console.error('ERROR: plugins[' + i + '] missing name'); process.exit(1); }
+              if (!p.description) { console.error('ERROR: plugins[' + i + '] missing description'); process.exit(1); }
+              if (!p.source) { console.error('ERROR: plugins[' + i + '] missing source'); process.exit(1); }
+              console.log('✓ plugins[' + i + '] (' + p.name + ') has required fields');
+            }
+
+            console.log('');
+            console.log('Marketplace schema validation passed.');
+          "
+
+      - name: Validate plugin.json schema
+        run: |
+          set -e
+          node -e "
+            const p = JSON.parse(require('fs').readFileSync('.claude-plugin/plugin.json', 'utf8'));
+            if (!p.name) { console.error('ERROR: plugin.json missing name'); process.exit(1); }
+            if (!p.description) { console.error('ERROR: plugin.json missing description'); process.exit(1); }
+            console.log('✓ plugin.json valid (name: ' + p.name + ')');
+          "
+
       - name: Test skill discovery
         run: npx --yes skills@latest list ./skills/channel/SKILL.md 2>/dev/null || echo "(skills list command not available, skipping)"
