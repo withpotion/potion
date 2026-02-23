@@ -52,8 +52,3 @@ Changes to these documents are versioned in this repo. You can view the full cha
 - [Open an issue](../../issues) for bugs, feature requests, or questions
 - Your agent can also file issues on your behalf (see SKILL.md for instructions)
 
-## Links
-
-- API: [api.withpotion.io](https://api.withpotion.io)
-- Feed serving: rss.withpotion.io
-

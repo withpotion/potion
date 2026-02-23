@@ -1,11 +1,11 @@
 # Privacy Policy
 
 **Effective date**: February 23, 2026
-**Last updated**: February 23, 2026
+**Last updated**: February 24, 2026
 
 Potion (withpotion.io) is operated by 9592 Solutions UG (haftungsbeschrankt), Fahrstr. 217, 40221 Dusseldorf, Germany. We are the data controller for the personal data described in this policy.
 
-**Privacy contact**: hello@withpotion.io. We respond to data subject requests within 30 days.
+**Privacy contact**: christo@withpotion.io. We respond to data subject requests within 30 days.
 
 ---
 
@@ -24,7 +24,7 @@ This shapes what we collect: we do not have page views, browsing sessions, or ty
 When you sign up, we store:
 
 - Email address
-- API key (stored as a hash internally, displayed in plaintext once at verification)
+- API key (displayed in plaintext once at verification, stored server-side for authentication)
 - Subscription tier (free or plus)
 - Stripe customer ID and subscription ID (if you upgrade)
 - Storage usage in bytes
@@ -118,6 +118,7 @@ We do not use cookies anywhere on withpotion.io.
 | Account data | Duration of account, plus 30 days after deletion |
 | Audio files (R2) | Deleted when episode or feed is deleted, or when account is closed |
 | Pending signups | Auto-expire and are purged daily |
+| Account deletion confirmations | Purged daily after completion or expiry |
 | Analytics events | 12 months (Mixpanel project setting) |
 | Error events | 90 days (Sentry project setting) |
 
@@ -134,7 +135,7 @@ If you are in the EU/EEA, you have the right to:
 - **Portability**: receive your data in a machine-readable format
 - **Objection**: object to processing based on legitimate interest
 
-To exercise any of these rights, email hello@withpotion.io. We will respond within 30 days. At this stage, account deletion and data export are handled manually on request.
+To exercise any of these rights, email christo@withpotion.io. We will respond within 30 days. At this stage, account deletion and data export are handled manually on request.
 
 If you believe we are processing your data unlawfully, you have the right to lodge a complaint with your supervisory authority. Our lead authority is:
 
@@ -162,7 +163,7 @@ When we make material changes to this policy, the `Last updated` date at the top
 
 ## Contact
 
-Questions about this policy: hello@withpotion.io
+Questions about this policy: christo@withpotion.io
 
 9592 Solutions UG (haftungsbeschrankt)
 Fahrstr. 217

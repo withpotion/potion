@@ -27,7 +27,7 @@ If the user doesn't have a Potion account yet:
 2. Tell the user to check their email and click the magic link
 3. Poll `GET /auth/signup/{signup_id}/status` every 5 seconds
 4. When status is `"confirmed"`, the response includes the `api_key`
-5. Store the API key for future use
+5. Store the API key immediately - it is only returned on the first poll after confirmation
 
 ## Endpoints
 
@@ -40,7 +40,8 @@ POST /feeds
     "title": "My Daily Briefing",
     "description": "AI-generated morning digest",
     "author": "User Name",
-    "feed_type": "episodic"  // or "serial"
+    "feed_type": "episodic",  // or "serial" (default: "episodic")
+    "language": "en"          // optional, default: "en"
 }
 ```
 Returns the feed ID and RSS URL. Give the RSS URL to the user to add to their podcast app (Apple Podcasts, Overcast, Pocket Casts, etc.).
@@ -69,8 +70,8 @@ Content-Type: multipart/form-data
 
 file: [audio file, max 50MB on free tier]
 title: "Episode Title"
-description: "Episode description"
-duration_seconds: 300  (optional)
+description: "Episode description"  (optional)
+duration_seconds: 300               (optional)
 ```
 
 **Add an episode (external URL):**
@@ -82,13 +83,20 @@ Content-Type: application/json
     "title": "Episode from Another Podcast",
     "audio_url": "https://example.com/episode.mp3",
     "source_type": "external",
-    "description": "Why this episode is relevant"
+    "description": "Why this episode is relevant",
+    "duration_seconds": 1800
 }
 ```
+All fields except `title`, `audio_url`, and `source_type` are optional.
 
 **List episodes:**
 ```
 GET /feeds/{feed_id}/episodes
+```
+
+**Get a single episode:**
+```
+GET /feeds/{feed_id}/episodes/{episode_id}
 ```
 
 **Delete an episode:**
@@ -118,6 +126,25 @@ POST /account/upgrade
 POST /account/billing
 ```
 
+**Delete account (two-step confirmation):**
+```
+DELETE /account
+```
+Returns a `confirmation_id`. The user receives a confirmation email and must click the link. Poll `GET /confirmations/{confirmation_id}/status` to detect when deletion completes.
+
+### Other
+
+**Get changelog:**
+```
+GET /changelog
+GET /changelog?since=2026-02-01
+```
+
+**Get tier limits and pricing (no auth required):**
+```
+GET /plans
+```
+
 ## Optional Metadata
 
 When adding episodes, you can include optional metadata that helps improve the product:
@@ -132,14 +159,11 @@ This is entirely optional and never required.
 
 ## Usage & Limits
 
-Every API response includes a `usage` object showing current consumption vs limits. When a limit is exceeded, the error response includes an upgrade URL.
-
-**Free tier**: 1 feed, 20 episodes, 500 MB storage, 50 MB per upload.
-**Plus ($5/mo)**: 5 feeds, 500 episodes, 5 GB storage, 200 MB per upload.
+Feed, episode, and account endpoints include a `usage` object showing current consumption vs limits. When a limit is exceeded, the error message indicates upgrading is available - use `POST /account/upgrade` to get a checkout link.
 
 ## Supported Audio Formats
 
-MP3, M4A, WAV, OGG, AAC. Files are stored and served as-is (no transcoding). For best podcast app compatibility, use MP3 at 96-128 kbps.
+MP3, M4A, WAV, OGG, AAC, FLAC, WebM. Files are stored and served as-is (no transcoding). For best podcast app compatibility, use MP3 at 96-128 kbps.
 
 ## Filing Bug Reports
 
