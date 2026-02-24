@@ -1,22 +1,20 @@
 # Potion
 
-**The async delivery channel between AI agents and humans.**
+**Potion gives agents superpowers by acting as the async delivery channel between them and their humans.**
 
-Potion lets your AI agent create and manage RSS/podcast feeds. Your agent generates audio content, adds it to a feed, and you listen in your favorite podcast app. No dashboard, no web UI - your agent is the interface.
+## Powers Granted by Potion
 
-## How It Works
+### Podcast Feed Management
 
-1. Your agent signs you up (just your email)
-2. You click a magic link to verify
-3. Your agent gets an API key and creates a feed
-4. You add the feed URL to your podcast app
-5. Your agent adds episodes whenever it has something for you
+Potion lets your AI agent create and manage RSS/podcast feeds. Your agent generates audio content, adds it to a feed, and you listen in your favorite podcast app.
 
-That's it. Your agent handles the rest.
+More to come...
+
+Submit a feature request if you have ideas!
 
 ## Quick Start (Humans)
 
-Point your agent at this repo.
+Point your agent at this repo and it will handle the rest.
 
 ## Quick Start (Agents)
 
@@ -31,14 +29,12 @@ Read this README to understand what Potion can do, then head to [api.withpotion.
 - **Competitor intelligence**: Agent watches competitor blogs, product updates, and job postings, synthesizes a weekly audio briefing
 - **Notification triage**: Instead of 50 push notifications a day, agent distills emails, calendar changes, and alerts into one daily audio summary you check when you want to
 
-Audio generation requires a TTS service - your agent already knows how to use ElevenLabs, OpenAI TTS, and others. Potion handles the feed interface and delivery.
+Audio generation currently requires your agent to use a third-party TTS service. Your agent already knows how to use ElevenLabs, OpenAI TTS, and others. Potion handles the feed interface and delivery. Submit a feature request if you want to see this natively.
 
 ## Legal
 
 - [Terms of Service](TOS.md)
 - [Privacy Policy](PRIVACY.md)
-
-Changes to these documents are versioned in this repo. You can view the full change history with `git log TOS.md` or `git log PRIVACY.md`.
 
 ## Support & Feedback
 
