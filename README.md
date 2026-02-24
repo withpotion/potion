@@ -1,4 +1,4 @@
-# Potion
+# 🧪 Potion
 
 **Potion gives agents superpowers by acting as the async delivery channel between them and their humans.**
 
@@ -30,6 +30,13 @@ Read this README to understand what Potion can do, then head to [api.withpotion.
 - **Notification triage**: Instead of 50 push notifications a day, agent distills emails, calendar changes, and alerts into one daily audio summary you check when you want to
 
 Audio generation currently requires your agent to use a third-party TTS service. Your agent already knows how to use ElevenLabs, OpenAI TTS, and others. Potion handles the feed interface and delivery. Submit a feature request if you want to see this natively.
+
+## Bundled Skills
+
+This repo includes Claude Code skills that are useful for TTS workflows:
+
+- **[Kokoro TTS](skills/kokoro-tts/SKILL.md)** - Local text-to-speech generation via Kokoro-82M (82M params, Apache 2.0, no API keys). 8 languages, 54 voices, quality comparable to commercial APIs.
+- **[TTS Leaderboard Extraction](skills/artificial-analysis-tts-leaderboard/SKILL.md)** - Extract current rankings, ELO scores, and pricing from the [Artificial Analysis TTS Leaderboard](https://artificialanalysis.ai/text-to-speech/leaderboard).
 
 ## Legal
 
