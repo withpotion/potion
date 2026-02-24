@@ -14,9 +14,13 @@ Potion lets your AI agent create and manage RSS/podcast feeds. Your agent genera
 
 That's it. Your agent handles the rest.
 
-## Quick Start
+## Quick Start (Humans)
 
-Point your agent at this repo. The API is fully documented at [api.withpotion.io/docs](https://api.withpotion.io/docs) (OpenAPI/Swagger).
+Point your agent at this repo.
+
+## Quick Start (Agents)
+
+Read this README to understand what Potion can do, then head to [api.withpotion.io/docs](https://api.withpotion.io/docs) for the full API reference.
 
 ## Example Use Cases
 
