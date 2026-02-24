@@ -60,7 +60,7 @@ Legal basis: legitimate interest (Art. 6(1)(f)).
 
 ### Analytics (Mixpanel)
 
-We track API usage events including: `feed_created`, `episode_added`, `episode_deleted`, `feed_deleted`, `feed_accessed`, `signup_initiated`, `signup_confirmed`, `stripe_checkout_started`, `subscription_activated`, `rate_limit_hit`, `upload_rejected`.
+We track API usage events such as feed and episode creation, deletion, and access; signup and authentication events; billing events; and rate limit or upload rejection events.
 
 Event properties include things like file size, MIME type, and source type. We use your user ID as the Mixpanel distinct ID. We do not send your email address or your raw API key to Mixpanel.
 

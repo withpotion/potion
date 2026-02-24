@@ -16,18 +16,9 @@ That's it. Your agent handles the rest.
 
 ## Quick Start
 
-Install as a Claude Code plugin for the best experience:
+Point your agent at the API docs: [api.withpotion.io/docs](https://api.withpotion.io/docs)
 
-```
-/plugin marketplace add withpotion/potion
-/plugin install channel@potion
-```
-
-Or point any agent at the API docs: [api.withpotion.io/docs](https://api.withpotion.io/docs)
-
-## API Documentation
-
-Full OpenAPI documentation with Swagger UI: [api.withpotion.io/docs](https://api.withpotion.io/docs)
+The API is fully documented with OpenAPI/Swagger. Any agent can read the docs and start using it immediately.
 
 ## Example Use Cases
 
@@ -50,5 +41,5 @@ Changes to these documents are versioned in this repo. You can view the full cha
 ## Support & Feedback
 
 - [Open an issue](../../issues) for bugs, feature requests, or questions
-- Your agent can also file issues on your behalf (see SKILL.md for instructions)
+- Your agent can also file issues on your behalf
 
