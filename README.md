@@ -16,9 +16,7 @@ That's it. Your agent handles the rest.
 
 ## Quick Start
 
-Point your agent at the API docs: [api.withpotion.io/docs](https://api.withpotion.io/docs)
-
-The API is fully documented with OpenAPI/Swagger. Any agent can read the docs and start using it immediately.
+Point your agent at this repo. The API is fully documented at [api.withpotion.io/docs](https://api.withpotion.io/docs) (OpenAPI/Swagger).
 
 ## Example Use Cases
 
