@@ -40,7 +40,7 @@ When your agent creates feeds or adds episodes, we store:
 - Episode titles and descriptions
 - Uploaded audio files (stored in Cloudflare R2)
 - External audio URLs (stored as references, not proxied or cached by us)
-- Optional metadata your agent provides: `use_case`, `generated_by`, `content_type`
+- Optional metadata your agent provides: `use_case` (feed-level), `generated_by`, `content_type`, `source` (episode-level)
 
 Legal basis: contract for feed and episode content. Legitimate interest (Art. 6(1)(f)) for optional metadata, which helps us understand what people are building. Optional metadata is never required and we do not prompt agents to collect it from users.
 
@@ -48,13 +48,17 @@ Audio files are stored and served as-is. We do not analyze, transcribe, or scan 
 
 ### Optional agent metadata
 
-When your agent creates episodes, it may optionally include structured metadata fields:
+Your agent may optionally include structured metadata fields when creating feeds or episodes:
 
-- `use_case` - what the agent is using Potion for (e.g., "daily email digest")
+**Feed-level:**
+- `use_case` - what the feed is for (e.g., "daily email digest")
+
+**Episode-level:**
 - `generated_by` - the model or system that produced the content (e.g., "claude-3.5-sonnet")
 - `content_type` - a descriptor for the content (e.g., "news briefing")
+- `source` - where the content originated (e.g., "email", "arxiv", "rss")
 
-These fields are entirely optional. We do not require them, we do not prompt agents to collect them from users, and the API works identically whether they are provided or not. If provided, they are stored in the `episode_meta` table and used only in aggregate to understand what people are building on Potion (e.g., "most common use cases this month"). We do not surface this data per-user or share it outside the company.
+These fields are entirely optional. We do not require them, we do not prompt agents to collect them from users, and the API works identically whether they are provided or not. If provided, they are used only in aggregate to understand what people are building on Potion (e.g., "most common use cases this month"). We do not surface this data per-user or share it outside the company.
 
 Legal basis: legitimate interest (Art. 6(1)(f)).
 
