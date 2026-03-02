@@ -33,10 +33,12 @@ Audio generation currently requires your agent to use a third-party TTS service.
 
 ## Bundled Skills
 
-This repo includes Claude Code skills that are useful for TTS workflows:
+This repo includes Claude Code skills:
 
 - **[Kokoro TTS](skills/kokoro-tts/SKILL.md)** - Local text-to-speech generation via Kokoro-82M (82M params, Apache 2.0, no API keys). 8 languages, 54 voices, quality comparable to commercial APIs.
 - **[TTS Leaderboard Extraction](skills/artificial-analysis-tts-leaderboard/SKILL.md)** - Extract current rankings, ELO scores, and pricing from the [Artificial Analysis TTS Leaderboard](https://artificialanalysis.ai/text-to-speech/leaderboard).
+- **[Deconstrain](skills/deconstrain/SKILL.md)** - Identify and remove patterns that constrain future thinking while preserving what works.
+- **[Voice Calibrate](skills/voice-calibrate/SKILL.md)** - Iteratively refine a personal voice playbook through writing drills. Generates realistic scenarios, drafts per your current rules, collects structured feedback, and updates the playbook with learnings.
 
 ## Legal
 
