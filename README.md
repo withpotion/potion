@@ -39,6 +39,7 @@ This repo includes Claude Code skills:
 - **[TTS Leaderboard Extraction](skills/artificial-analysis-tts-leaderboard/SKILL.md)** - Extract current rankings, ELO scores, and pricing from the [Artificial Analysis TTS Leaderboard](https://artificialanalysis.ai/text-to-speech/leaderboard).
 - **[Deconstrain](skills/deconstrain/SKILL.md)** - Identify and remove patterns that constrain future thinking while preserving what works.
 - **[Voice Calibrate](skills/voice-calibrate/SKILL.md)** - Iteratively refine a personal voice playbook through writing drills. Generates realistic scenarios, drafts per your current rules, collects structured feedback, and updates the playbook with learnings.
+- **[Claude Code Statusline](skills/claude-statusline/SKILL.md)** - Statusline for Claude Code showing subscription quota (5h/7d with burn-rate projections), version update availability, and live service status from status.claude.com.
 
 ## Legal
 
