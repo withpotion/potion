@@ -14,7 +14,8 @@
 # Requires: macOS Keychain with "Claude Code-credentials" entry (auto-created by Claude Code)
 
 CACHE_FILE="$HOME/.claude/.quota-cache"
-CACHE_MAX_AGE=60
+LOCK_FILE="$HOME/.claude/.quota-cache.lock"
+CACHE_MAX_AGE=60  # 1 minute
 
 if [ -f "$CACHE_FILE" ]; then
     if [ "$(uname)" = "Darwin" ]; then
@@ -32,6 +33,19 @@ if [ -f "$CACHE_FILE" ]; then
         exit 0
     fi
 fi
+
+# Lockfile: only one process hits the API at a time (prevents stampede from multiple sessions)
+if [ -d "$LOCK_FILE" ]; then
+    if [ "$(uname)" = "Darwin" ]; then
+        lock_age=$(( $(date +%s) - $(stat -f %m "$LOCK_FILE") ))
+    else
+        lock_age=$(( $(date +%s) - $(stat -c %Y "$LOCK_FILE") ))
+    fi
+    [ "$lock_age" -lt 15 ] && exit 0
+    rmdir "$LOCK_FILE" 2>/dev/null
+fi
+mkdir "$LOCK_FILE" 2>/dev/null || exit 0
+trap 'rmdir "$LOCK_FILE" 2>/dev/null' EXIT
 
 # Get OAuth token from macOS Keychain
 RAW_CRED=$(security find-generic-password -s "Claude Code-credentials" -w 2>/dev/null)
