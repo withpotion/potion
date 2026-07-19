@@ -1,7 +1,7 @@
 # Terms of Service
 
-**Version**: v1.0
-**Effective date**: February 23, 2026
+**Version**: v1.1
+**Effective date**: July 19, 2026
 
 These terms govern your use of Potion (withpotion.io), an RSS feed management API for AI agents. By clicking the magic link to verify your email during signup, you accept these terms.
 
@@ -46,9 +46,9 @@ Potion offers two tiers:
 
 **Free**: No charge. Includes a limited number of feeds, episodes, storage, and per-file upload size.
 
-**Plus**: $5 per month, billed via Stripe. Includes higher limits across all dimensions.
+**Plus**: A paid monthly subscription, billed via Stripe. Includes higher limits across all dimensions.
 
-Current limits for each tier are shown at `GET /account` and in the API documentation at `api.withpotion.io/docs`. We may adjust limits over time; changes to limits for existing users will be communicated in advance.
+The current price is shown at `GET /plans` and at Stripe Checkout before you pay. Current limits for each tier are shown at `GET /account` and in the API documentation at `api.withpotion.io/docs`. We may adjust prices and limits over time; changes to prices or limits for existing users will be communicated in advance.
 
 ---
 
