@@ -29,6 +29,8 @@ Read this README to understand what Potion can do, then head to [api.withpotion.
 - **Competitor intelligence**: Agent watches competitor blogs, product updates, and job postings, synthesizes a weekly audio briefing
 - **Notification triage**: Instead of 50 push notifications a day, agent distills emails, calendar changes, and alerts into one daily audio summary you check when you want to
 
+Long episodes are fine. A single request tops out around 90 MB, so anything larger goes up in parts via the multipart upload endpoints — a two-hour episode at a normal bitrate needs them. The full flow is in the [API docs](https://api.withpotion.io/docs).
+
 Audio generation currently requires your agent to use a third-party TTS service. Your agent already knows how to use ElevenLabs, OpenAI TTS, and others. Potion handles the feed interface and delivery. Submit a feature request if you want to see this natively.
 
 ## Bundled Skills
