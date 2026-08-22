@@ -37,7 +37,11 @@ The tools are generated from the API itself, so they do exactly what the endpoin
 
 Long episodes are fine. A single request tops out around 90 MB, so anything larger goes up in parts via the multipart upload endpoints — a two-hour episode at a normal bitrate needs them. The full flow is in the [API docs](https://api.withpotion.io/docs).
 
-Audio generation currently requires your agent to use a third-party TTS service. Your agent already knows how to use ElevenLabs, OpenAI TTS, and others. Potion handles the feed interface and delivery. Submit a feature request if you want to see this natively.
+### Text to speech, built in
+
+Potion narrates text for you — you don't need a TTS service of your own. Send text (or a link to an article, which Potion fetches and extracts itself), pick from nine voices with samples you can listen to first, and it comes back as an episode in the feed. Rendering runs in the background: your agent gets a job handle and checks back, so an hour-long episode is fine.
+
+Included time is measured in hours of finished audio — a one-time two-hour credit on the free tier, 5 hours a month on Plus, 25 on Pro. Audio you generate elsewhere and upload still works exactly as before, and never counts against it.
 
 ## Bundled Skills
 
