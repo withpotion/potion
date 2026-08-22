@@ -14,6 +14,11 @@ Artifacts shape how future agents think. Concrete lists become checklists. Check
 
 This is a prompt-level instance of the Bitter Lesson: encoded human knowledge caps what systems can discover. Chess heuristics constrained what AlphaZero could find. Option lists constrain what future agents can consider.
 
+**Related framings (and where they fall short):**
+- **Bitter Lesson Engineering** (Daniel Miessler): specify the *what*, not the *how*. Constraints don't only cap what an agent considers — they *decay*: a procedure tuned for a weaker model actively degrades a stronger one. "The smarter AI gets, the more antiquated your instructions become" — at some point they make the AI stupider, not smarter.
+- **"The model eats the scaffolding"** (Logan Kilpatrick): workarounds for a model's current limits get absorbed into the next model and become dead weight. Scaffolding has a shelf life.
+- **Deconstrain's edge over both:** the load-bearing-vs-incidental distinction. Those framings trend absolutist ("never prescribe how"); that would strip the constraints this skill deliberately preserves. Keep the decay insight, not the absolutism.
+
 ## The Phenomenon
 
 When artifacts contain:
@@ -40,6 +45,7 @@ Future agents will:
 - Method-specific naming (implies the method is fixed)
 - Architecture showing specific tools as core components
 - "The workflow is..." statements
+- Conclusion-first ordering (recommendation before reasoning, answer before analysis)
 
 **The test:** Would an agent reading this feel free to invent a completely different approach? Or would they feel they should pick from the presented options?
 
@@ -76,6 +82,24 @@ Before removing anything, identify what the artifact does well:
 
 Deconstraining isn't about stripping everything down. It's about opening creative space while keeping what works.
 
+## Solution Space Intent <!-- added: 2026-03-25 -->
+
+Before scanning for patterns, ask: **what is this artifact trying to do to the solution space?**
+
+Artifacts relate to the solution space in three ways:
+
+- **Constrain** - narrow it. Guardrails, requirements, standards, "don't do X" rules. Constraining is sometimes the whole point. The question is whether each constraint is load-bearing or incidental (next section's focus).
+
+- **Document** - map it without changing it. References, inventories, architecture docs, "here's what exists" lists. Constraining patterns here are perception bugs - the reader mistakes the map for the territory. "These are the three deployment options" reads as "there are only three options." Fix is usually completeness cues or explicit framing ("known options include..."), not removal.
+
+- **Expand or shift** - open it up, reposition it, or reshape it. Brainstorming prompts, strategy pivots, principles, exploration guidance. Constraining patterns here are the most damaging because they undermine the artifact's own purpose. A brainstorming doc that lists five ideas becomes a multiple-choice quiz. A strategy pivot that over-specifies the new direction trades one box for another. Deconstrain aggressively.
+
+**The calibration:** An artifact meant to expand that accidentally constrains needs aggressive deconstraining. An artifact meant to document that accidentally constrains needs framing fixes. An artifact meant to constrain needs validation (load-bearing or incidental?), not reflexive loosening.
+
+Most artifacts blend these intents - a strategy doc might constrain (guardrails from past failures), document (current landscape), and expand (new directions) in different sections. Assess per-section, not per-artifact.
+
+**The temporal axis** <!-- added: 2026-06-08 -->: load-bearing vs incidental isn't fixed — it drifts as the model improves. A constraint that was load-bearing for a weaker model (a step-by-step procedure that compensated for what it couldn't figure out) can become incidental, then actively harmful, once a stronger model could derive the same thing better on its own. So when re-touching an artifact, don't assume past constraints are still earning their place — re-ask "is this still load-bearing for *this* model?" The decay direction is one-way: prescriptive how-to rots fastest, context about who/what/why ages best.
+
 ## How to Deconstrain
 
 Replace incidental prescriptive content with:
@@ -84,6 +108,7 @@ Replace incidental prescriptive content with:
 - **Generic abstractions** ("touches" not "postcards_sent")
 - **Explicit permission** ("This isn't exhaustive - invent approaches that fit")
 - **Principles over procedures** ("The goal is X" not "The steps are 1, 2, 3")
+- **Reasoning before conclusions** - present context and analysis before recommendations, so readers form their own view before encountering yours
 
 Reframe load-bearing constraints as principles rather than prescriptions when possible. "Never do X" becomes "We learned that X causes Y, so avoid it."
 
@@ -121,6 +146,19 @@ Test your demos thoroughly.
 ```
 
 The absence of specifics IS the deconstraint. State only the positive principle. Don't explain what NOT to do. Don't hint at what prompted the guidance.
+
+**The self-referential variant** <!-- added: 2026-07-21 -->: describing a *model-behavior* failure mode ("models do X when they sense Y") in always-loaded guidance is negative anchoring aimed at the reader itself — a standing description of the reader's own disposition primes that disposition every session. Keep the positive behavioral rule in the always-read text; park the phenomenon's name, evidence, and psychology in a deliberately-read provenance doc the rule points to. (Forged on orchestrate's "context anxiety" paragraph, 2026-07-21 — reframed to "worker prompts talk about the task, never about token budgets"; evidence lives in the research dir it cites.)
+
+**The situational-reason variant** <!-- added: 2026-08-11 -->: a *reason* recorded in a surface that gets injected into every future session — a project state block, a startup hook, a standing note — installs a disposition, where the *gate* alone would have installed a behavior. "Paused because this was expensive" teaches the reader to weigh cost; "paused until <date>, resume when <condition>" teaches it to check a date. Both are true; only one generalizes. And it does generalize: a reason attached to one arc becomes the frame the reader applies to *unrelated* work it meets in the same place, because an injected block reads as ambient truth rather than as a scoped note. So record what re-entry needs — when it lifts, what must be true first, who owns it — and let the reason live where it reads as provenance (a dated quote, a chronicle) rather than as the frame. Costs, scarcity, past failures, and "we did it this way because" are the usual carriers.
+
+## Anti-Pattern: The Fallback Ladder <!-- added: 2026-07-07 -->
+
+An ordered "try X, then Y, then Z" sequence — an escalation ladder, a tiered fallback, a "cheapest-first" list of options — is a procedure wearing the costume of *optionality*. It slips past the "prescribed workflow" flag because it reads as a menu, not a rigid Step 1→2→3 — but it constrains twice:
+
+1. **It anchors to the listed rungs and their order.** The reader stops considering options off the ladder and treats the ordering as the logic even when the situation wants a different pick.
+2. **It smuggles in a stop criterion — "stop at the first rung that works."** That quietly converts the *goal* (solve it well / get what the task actually needs) into a *process* (a step ran without erroring) — the actually-trying proxy-satisfaction trap. The first tool returns *something* thin, so the reader settles there and never reaches what the task required.
+
+Fix: present the options as an **inventory to select from against the outcome**, not a sequence to walk. Say what each is good for, state the real bar (the result the task needs, not a step that didn't throw), and let the reader pick — including things not on the list. A cost-ordering can survive as a light instinct ("don't reach for the heavy tool when a cheap one gets it") but never as a stop condition. Sibling of actually-trying's milestone-as-endpoint — here the milestone is "a fallback step succeeded."
 
 ## Examples
 
@@ -175,6 +213,49 @@ Consider:
 
 ---
 
+**Constraining:** <!-- added: 2026-03-18 -->
+```markdown
+## Anti-metrics (do NOT optimize)
+- DAU/MAU
+- session length
+- streak length
+- retention
+```
+
+**Deconstrained:**
+```markdown
+Any metric is fine to track. The question is what you'd change the product
+to move it. If the answer involves shame, guilt, manufactured urgency, or
+engagement tricks, don't do it. If the answer involves making the product
+genuinely better, do it.
+```
+
+The label "anti-metric" itself was doing the constraining - it created a binary (good metrics vs bad metrics) that prevented nuanced use of informative signals. A product with strong values can track streak length without adding streak shame. The constraint belongs on the action, not the measurement.
+
+---
+
+---
+
+**Constraining (LLM prompts):** <!-- added: 2026-04-14 -->
+```
+Title: 2-5 words.
+Subtitle: 1-2 sentences.
+Summary: 1-2 sentences describing...
+```
+
+**Deconstrained:**
+```
+Title: short or very short, used as a heading in emails and dashboards,
+       should read as a noun phrase not a sentence fragment that trails off.
+Subtitle: natural length is typically a sentence or two; write what the
+          topic needs, no more.
+Summary: the headline fact in an email - what the reader needs to see first.
+```
+
+Numeric word/char limits in LLM prompts cause truncation mid-sentence: the model starts writing, notices it's approaching the limit, and stops awkwardly (e.g., "The movie Avatar 2 (Avatar: The Way of Water) has" - trailing "has" because the model counted words as it went). Purpose-based framing ("used as a heading", "the headline fact") lets the model pick natural length for the context. Same deconstrain principle as option lists: describe the goal, not the exact shape.
+
+---
+
 **Load-bearing (preserve, but reframe):**
 ```markdown
 ## IMPORTANT: Never use option C
@@ -193,12 +274,13 @@ Whatever method you choose, ensure it handles concurrent writes safely.
 ## When Deconstraining
 
 1. **Identify what the artifact does well** - don't lose valuable clarity or hard-won insights
-2. **Scan for constraining patterns** - concrete lists, decision logic, method-specific structures
-3. **Distinguish load-bearing from incidental** - ask the user if uncertain
-4. **Assess the balance** - if mostly load-bearing or factual, minimal changes may be appropriate
-5. **Replace incidental constraints** with open-ended alternatives
-6. **Preserve or reframe load-bearing constraints** as principles
-7. **Keep factual documentation** - tools exist or don't, that's not constraining
+2. **Identify solution space intent** - is each section trying to constrain, document, or expand? This calibrates everything downstream
+3. **Scan for constraining patterns** - concrete lists, decision logic, method-specific structures
+4. **Distinguish load-bearing from incidental** - ask the user if uncertain
+5. **Assess the balance** - if mostly load-bearing or factual, minimal changes may be appropriate
+6. **Replace incidental constraints** with open-ended alternatives
+7. **Preserve or reframe load-bearing constraints** as principles
+8. **Keep factual documentation** - tools exist or don't, that's not constraining
 
 The goal isn't to delete useful information. It's to present it in a way that invites thinking rather than following.
 

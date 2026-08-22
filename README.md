@@ -20,6 +20,12 @@ Point your agent at this repo and it will handle the rest.
 
 Read this README to understand what Potion can do, then head to [api.withpotion.io/docs](https://api.withpotion.io/docs) for the full API reference.
 
+## Connect Potion to ChatGPT or Claude
+
+Potion speaks MCP at `https://api.withpotion.io/mcp`. Add it as a custom connector in ChatGPT or Claude, authenticate with your `pk_` API key as a bearer token, and your assistant can make feeds and add episodes without you writing any code.
+
+The tools are generated from the API itself, so they do exactly what the endpoints do. The HTTP API stays the larger surface — large file uploads and API key regeneration are HTTP-only, because a tool call can't carry raw audio and a connector has nowhere to store a replacement key.
+
 ## Example Use Cases
 
 - **Email digest**: Agent reads your emails, creates a TTS audio summary, adds it to your morning feed - listen on your commute
