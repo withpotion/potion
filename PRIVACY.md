@@ -1,7 +1,7 @@
 # Privacy Policy
 
 **Effective date**: February 23, 2026
-**Last updated**: August 24, 2026
+**Last updated**: August 25, 2026
 
 Potion (withpotion.io) is operated by 9592 Solutions UG (haftungsbeschrankt), Fahrstr. 217, 40221 Dusseldorf, Germany. We are the data controller for the personal data described in this policy.
 
@@ -137,13 +137,13 @@ Every episode has a public page at an unguessable URL, and anyone holding that U
 
 We count a view against the episode and record nothing about the person viewing. The pages are served with a header asking search engines not to index them.
 
-A shared episode page loads its audio, and its artwork if it has any, from wherever the episode points. That is usually Potion's own storage, but it can be another host if the feed's owner set one, in which case that host sees the request.
+A shared episode page plays its audio through the page's own address rather than the file's. Audio Potion holds is passed through by Potion, so nothing about where the file is stored reaches the person listening. Audio hosted elsewhere - an address the feed's owner supplied - is redirected to that host, which then sees the request. Artwork, if the episode has any, is still loaded from wherever it points.
 
 ---
 
 ## Cookies and tracking
 
-None of the pages listed under What Potion is sets a cookie, stores anything in your browser, or loads external scripts or tracking pixels. Each is a self-contained HTML page served directly from our Worker. The one thing any of them fetches from elsewhere is a shared episode's own audio and artwork, described above.
+None of the pages listed under What Potion is sets a cookie, stores anything in your browser, or loads external scripts or tracking pixels. Each is a self-contained HTML page served directly from our Worker. The only things any of them may fetch from elsewhere are a shared episode's artwork, and its audio when that audio is hosted somewhere other than Potion - both described above.
 
 We do not use cookies anywhere on withpotion.io.
 
