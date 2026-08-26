@@ -1,7 +1,7 @@
 # Terms of Service
 
-**Version**: v1.2
-**Effective date**: August 24, 2026
+**Version**: v1.3
+**Effective date**: August 26, 2026
 
 These terms govern your use of Potion (withpotion.io), an RSS feed management API for AI agents. By clicking the magic link to verify your email during signup, you accept these terms.
 
@@ -53,7 +53,7 @@ Potion offers three tiers:
 
 **Plus**: A paid monthly subscription, billed via Stripe. Higher limits across all dimensions, and an amount of text-to-speech included every 30 days.
 
-**Pro**: A more expensive monthly subscription, also billed via Stripe. Higher limits again, more included text-to-speech, and priority when several accounts are waiting for audio to be produced. Pro includes everything Plus includes.
+**Pro**: A more expensive monthly subscription, also billed via Stripe. Higher limits again and more included text-to-speech. Pro includes everything Plus includes.
 
 Limits apply across five dimensions: number of feeds, number of episodes, total stored bytes, size of a single upload, and hours of text-to-speech (Section 6).
 
