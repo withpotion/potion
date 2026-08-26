@@ -26,6 +26,17 @@ Potion speaks MCP at `https://api.withpotion.io/mcp`. Add it as a custom connect
 
 The tools are generated from the API itself, so they do exactly what the endpoints do. The HTTP API stays the larger surface — large file uploads and API key regeneration are HTTP-only, because a tool call can't carry raw audio and a connector has nowhere to store a replacement key.
 
+### In Claude Code and Cowork
+
+This repo is also a plugin marketplace, so Potion installs as a plugin:
+
+```
+/plugin marketplace add withpotion/potion
+/plugin install potion@potion
+```
+
+The plugin brings the connector along with skills for the feed workflow, for uploading audio from your own machine, and for the part people get stuck on, which is adding the feed in their podcast app. It signs you in over OAuth, so there is no key to paste. Source is in [`plugins/potion/`](plugins/potion/).
+
 ## Example Use Cases
 
 - **Email digest**: Agent reads your emails, creates a TTS audio summary, adds it to your morning feed - listen on your commute
