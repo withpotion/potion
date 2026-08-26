@@ -1,0 +1,15 @@
+{
+  "$schema": "https://json.schemastore.org/claude-code-plugin-manifest.json",
+  "name": "potion",
+  "displayName": "Potion",
+  "version": "0.1.0",
+  "description": "Private podcast feeds for the audio your assistant produces or finds. Create a feed, add episodes, and subscribe to it in any podcast app.",
+  "author": {
+    "name": "9592 Solutions UG (haftungsbeschraenkt)",
+    "email": "christo@withpotion.io",
+    "url": "https://withpotion.io"
+  },
+  "homepage": "https://api.withpotion.io/docs",
+  "repository": "https://github.com/withpotion/potion",
+  "keywords": ["podcast", "rss", "audio", "feed", "mcp", "briefing"]
+}

@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "potion": {
+      "type": "http",
+      "url": "https://api.withpotion.io/mcp/claude"
+    }
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "name": "potion",
+  "description": "Potion's own plugins for Claude Code and Cowork.",
+  "owner": {
+    "name": "9592 Solutions UG (haftungsbeschraenkt)",
+    "email": "christo@withpotion.io",
+    "url": "https://withpotion.io"
+  },
+  "plugins": [
+    {
+      "name": "potion",
+      "source": "./plugins/potion",
+      "description": "Private podcast feeds for the audio your assistant produces or finds. Create a feed, add episodes, and subscribe to it in any podcast app.",
+      "category": "productivity",
+      "homepage": "https://api.withpotion.io/docs",
+      "author": {
+        "name": "9592 Solutions UG (haftungsbeschraenkt)",
+        "email": "christo@withpotion.io"
+      }
+    }
+  ]
+}
