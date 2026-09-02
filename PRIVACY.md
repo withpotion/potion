@@ -1,7 +1,7 @@
 # Privacy Policy
 
 **Effective date**: February 23, 2026
-**Last updated**: August 25, 2026
+**Last updated**: September 2, 2026
 
 Potion (withpotion.io) is operated by 9592 Solutions UG (haftungsbeschrankt), Fahrstr. 217, 40221 Dusseldorf, Germany. We are the data controller for the personal data described in this policy.
 
@@ -15,7 +15,7 @@ Potion is an API for AI agents. Agents create RSS podcast feeds, upload audio ep
 
 There is no dashboard and no marketing platform. The web pages we serve are the ones the service needs in order to work: the magic link verification page shown after signup, the sign-in page you reach when connecting an assistant and the page its emailed link opens, the pages Stripe returns you to after checkout, and the public page for a shared episode.
 
-This shapes what we collect: we have no browsing sessions and no typical web analytics. Almost everything we know about you comes from API calls made on your behalf. The exception is shared episode pages, where we count a view against the episode and record nothing about the person who opened it.
+This shapes what we collect: we have no browsing sessions and no typical web analytics. Almost everything we know about you comes from API calls made on your behalf. Two things sit outside that. We count a view against the episode when someone opens a shared episode page, and record nothing about the person who opened it. And we log requests for your feeds and episodes against the feed, so we can tell whether anything is reaching a podcast app. Both are described below.
 
 ---
 
@@ -81,6 +81,20 @@ When you point Potion at a URL, Potion fetches the page itself from Cloudflare's
 
 Legal basis: performance of a contract. Narrating text and reading an article are things you asked Potion to do.
 
+### Feed and episode requests
+
+When a podcast app fetches one of your feeds, or downloads an episode we host, we record that the request happened. Podcast apps do not report anything back to the publisher, so a server log is the only way to know whether a feed reached anybody.
+
+Each record holds which feed it was, which episode where there was one, whether the request came from a podcast app, a browser or a crawler, the app's name where the User-Agent says so plainly, how many bytes we sent, and when.
+
+We do not store your IP address. We use it, together with the User-Agent, to compute a short key that lets us tell one app's several requests for the same episode apart from several different apps asking once each. Without that, a player fetching a long episode in five pieces would look like five downloads. The key is computed through a secret we hold, through the date, and through the episode, so the same app produces a different value tomorrow and a different value for the next episode. It cannot be used to follow anyone across days or across episodes, and it cannot be turned back into an address.
+
+We classify the requesting app only coarsely: podcast app, browser or crawler, plus its name where that is unambiguous. We do not build a device fingerprint, and we do not route these requests through a third-party measurement service.
+
+Records of individual requests are deleted after 14 days. Before they are deleted they are counted into daily totals per feed, episode and app type, and those totals are kept. The totals carry no per-request key and cannot be resolved back to a client.
+
+Legal basis: legitimate interest (Art. 6(1)(f)). We need to know whether feeds are being delivered at all, and to size storage and bandwidth.
+
 ### Analytics (Mixpanel)
 
 We track API usage events such as feed and episode creation, deletion, and access; signup and authentication events, including connector sign-ins; billing events; rate limit or upload rejection events; text-to-speech jobs; article extractions; and views of shared episode pages.
@@ -127,7 +141,9 @@ Each processor is engaged under data processing terms covering the service we us
 
 RSS feeds are served at secret URLs. The URL is unguessable - it contains a nanoid with sufficient entropy to be practically private. There is no authentication on the RSS endpoint by design, so podcast apps can subscribe directly.
 
-We do not track who subscribes to feeds. We observe podcast client user-agent strings in aggregate analytics only. We have no way to link a podcast app subscription to an individual user.
+We do not know who subscribes to a feed. A podcast app does not identify itself or its user, and nothing in the request tells us who is holding the URL.
+
+We do record that the request happened, against the feed. Because a feed belongs to an account, those records are linkable to the account that owns the feed - they are covered under Feed and episode requests above. What they cannot do is say anything about the person at the other end: there is no subscriber identifier, and the key that groups one app's repeated requests is different every day.
 
 ---
 
@@ -161,6 +177,8 @@ We do not use cookies anywhere on withpotion.io.
 | Connector access tokens (stored hashed) | Purged 30 days after they expire or are revoked; removed with the account |
 | Pending signups | Auto-expire and are purged daily |
 | Account deletion confirmations | Purged daily after completion or expiry |
+| Feed and episode request records | 14 days |
+| Daily delivery totals | Kept; removed with the feed or the account |
 | Analytics events | 12 months (Mixpanel project setting) |
 | Error events | 90 days (Sentry project setting) |
 
