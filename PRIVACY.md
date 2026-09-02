@@ -13,9 +13,9 @@ Potion (withpotion.io) is operated by 9592 Solutions UG (haftungsbeschrankt), Fa
 
 Potion is an API for AI agents. Agents create RSS podcast feeds, upload audio episodes, have text narrated into audio, point Potion at articles to read aloud, and manage content. Humans subscribe to those feeds in their podcast apps. An assistant such as ChatGPT or Claude can also be connected to an account directly, over OAuth.
 
-There is no dashboard and no marketing platform. The web pages we serve are the ones the service needs in order to work: the magic link verification page shown after signup, the sign-in page you reach when connecting an assistant and the page its emailed link opens, the pages Stripe returns you to after checkout, and the public page for a shared episode.
+There is no dashboard and no marketing platform. The web pages we serve are the ones the service needs in order to work: the magic link verification page shown after signup, the sign-in page you reach when connecting an assistant and the page its emailed link opens, the pages Stripe returns you to after checkout, the public page for a shared episode, and a one-page introduction at `/daily` for people who hear about Potion outside of an assistant.
 
-This shapes what we collect: we have no browsing sessions and no typical web analytics. Almost everything we know about you comes from API calls made on your behalf. Two things sit outside that. We count a view against the episode when someone opens a shared episode page, and record nothing about the person who opened it. And we log requests for your feeds and episodes against the feed, so we can tell whether anything is reaching a podcast app. Both are described below.
+This shapes what we collect: we have no browsing sessions and no typical web analytics. Almost everything we know about you comes from API calls made on your behalf. Three things sit outside that. We count a view against the episode when someone opens a shared episode page, and record nothing about the person who opened it. We log requests for your feeds and episodes against the feed, so we can tell whether anything is reaching a podcast app. And we count views and clicks on the introduction page, with nothing about who they came from. All three are described below.
 
 ---
 
@@ -94,6 +94,14 @@ We classify the requesting app only coarsely: podcast app, browser or crawler, p
 Records of individual requests are deleted after 14 days. Before they are deleted they are counted into daily totals per feed, episode and app type, and those totals are kept. The totals carry no per-request key and cannot be resolved back to a client.
 
 Legal basis: legitimate interest (Art. 6(1)(f)). We need to know whether feeds are being delivered at all, and to size storage and bandwidth.
+
+### The introduction page
+
+Potion serves a one-page introduction at `api.withpotion.io/daily` for people who hear about it in a video or a post rather than through an assistant. Opening the page counts a view, and following one of its buttons toward an assistant's directory counts a click. A link to the page can carry a campaign label, such as a video id, and the label is stored with the count.
+
+A record holds the event, the label, which assistant the click went toward, and the time. There is no cookie, no visitor identifier, and the IP address is not used at all, so a view cannot be tied to the click that follows it, to another visit, or to any account. The records can say how many views a given video produced and how many clicks followed; they cannot say anything about a person.
+
+Legal basis: legitimate interest (Art. 6(1)(f)). We need to know whether telling people about Potion in a video brings anyone to it.
 
 ### Analytics (Mixpanel)
 
@@ -179,6 +187,7 @@ We do not use cookies anywhere on withpotion.io.
 | Account deletion confirmations | Purged daily after completion or expiry |
 | Feed and episode request records | 14 days |
 | Daily delivery totals | Kept; removed with the feed or the account |
+| Introduction-page views and clicks | 400 days |
 | Analytics events | 12 months (Mixpanel project setting) |
 | Error events | 90 days (Sentry project setting) |
 
