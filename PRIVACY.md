@@ -1,7 +1,7 @@
 # Privacy Policy
 
 **Effective date**: February 23, 2026
-**Last updated**: September 2, 2026
+**Last updated**: September 12, 2026
 
 Potion (withpotion.io) is operated by 9592 Solutions UG (haftungsbeschrankt), Fahrstr. 217, 40221 Dusseldorf, Germany. We are the data controller for the personal data described in this policy.
 
@@ -103,6 +103,12 @@ A record holds the event, the label, which assistant the click went toward, and 
 
 Legal basis: legitimate interest (Art. 6(1)(f)). We need to know whether telling people about Potion in a video brings anyone to it.
 
+### Reports about content
+
+When someone reports content as illegal (Terms of Service, Section 11), we keep the report, including the reporter's name and email address where they gave them, our decision, and a record of what we removed, why, and which account it belonged to. We use this to handle the report, to tell the reporter and the account holder what we decided, to deal with a challenge to that decision, and to defend against legal claims about the content. We do not tell the account holder who made a report unless the law requires it.
+
+Legal basis: legal obligation (Art. 6(1)(c)), because the Digital Services Act requires us to handle reports and explain our decisions, and legitimate interest (Art. 6(1)(f)) in defending against claims.
+
 ### Analytics (Mixpanel)
 
 We track API usage events such as feed and episode creation, deletion, and access; signup and authentication events, including connector sign-ins; billing events; rate limit or upload rejection events; text-to-speech jobs; article extractions; and views of shared episode pages.
@@ -183,6 +189,7 @@ We do not use cookies anywhere on withpotion.io.
 | Render jobs, including the submitted or extracted text | Duration of account |
 | Connector sign-in attempts | Purged 14 days after they lapse; removed with the account |
 | Connector access tokens (stored hashed) | Purged 30 days after they expire or are revoked; removed with the account |
+| Reports about content, and records of what was removed | 3 years after the decision |
 | Pending signups | Auto-expire and are purged daily |
 | Account deletion confirmations | Purged daily after completion or expiry |
 | Feed and episode request records | 14 days |

@@ -1,7 +1,7 @@
 # Terms of Service
 
-**Version**: v1.3
-**Effective date**: August 26, 2026
+**Version**: v1.4
+**Effective date**: September 12, 2026
 
 These terms govern your use of Potion (withpotion.io), an RSS feed management API for AI agents. By clicking the magic link to verify your email during signup, you accept these terms.
 
@@ -97,7 +97,7 @@ Potion can fetch a web page you point it at and extract its main text, so that t
 - Some domains are refused outright, either because they exist to bypass paywalls or because their articles sit behind a subscription. A refused page is refused with a reason you can read.
 - Pages that yield very little text are refused rather than narrated. That is what a paywall stub, a bot check, or a page that assembles itself in the browser looks like from the outside.
 - Reading and narrating are separate steps. Potion tells you how much text it extracted and roughly how long it would run as audio, and spends nothing from your allowance until you ask it to go ahead.
-- Potion cannot know what rights you hold in a page you point it at. You are responsible for having the right to have that content read aloud for you, and for not using this to get around a paywall, a license, or an access control. If you are unsure, submit the text yourself instead of a URL.
+- Potion cannot tell whether you are allowed to have a page read aloud. Only submit text or links where copying the text and narrating it for you is allowed, either because you have permission or because the law allows it. A page being publicly reachable does not on its own mean that it is. Do not use this to get around a paywall or an access control, or to break license terms that bind you.
 
 ---
 
@@ -115,12 +115,12 @@ Every episode has a public page at `api.withpotion.io/e/{token}`. The URL comes 
 
 ## 9. Your Content
 
-- You retain ownership of all content you upload, generate through Potion, or reference through Potion.
-- By uploading content, submitting text for narration, or pointing Potion at a URL, you grant 9592 Solutions UG a limited, non-exclusive license to store, transmit, and serve that content, and to pass it to the providers named in the Privacy Policy, solely for the purpose of operating Potion on your behalf.
-- AI-generated audio is explicitly permitted, whether you produce it elsewhere or Potion produces it for you.
-- External URL episodes are stored as references only. Potion does not download, validate, or cache external audio files. You are responsible for the availability and legality of externally referenced content.
+- You keep whatever rights you have in your content.
+- To the extent you can grant them, you give 9592 Solutions UG the non-exclusive rights needed to copy, store, transmit and narrate what you submit, and to serve the resulting audio through your feed and its episode pages, only in order to provide Potion to you. That includes processing by the providers named in the Privacy Policy for that purpose.
+- AI-generated content is allowed, within these terms.
+- For an episode that points at audio hosted somewhere else, Potion stores the link and not the file, so whether it plays depends on that host. For narration, Potion stores the text that was submitted or extracted, alongside the job and the audio it produces.
 
-You are responsible for ensuring your content complies with applicable law. Content that is illegal, infringing, or harmful is not permitted. Zero tolerance for child sexual abuse material (CSAM) in any form. Violations will result in immediate account termination and referral to law enforcement.
+Illegal content is not allowed. Child sexual abuse material (CSAM) in any form leads to the account being closed and a report to law enforcement.
 
 ---
 
@@ -130,52 +130,77 @@ Do not use Potion to:
 
 - Violate any applicable law or regulation
 - Infringe on intellectual property rights
-- Get around a paywall, license, or access control, including by pointing Potion's URL reading at content you are not entitled to
+- Get around a paywall or access control, or break license terms that bind you, including through Potion's URL reading
+- Share an episode's page or audio publicly when you do not have the rights to publish it
 - Upload or reference CSAM or other illegal content
 - Attempt to gain unauthorized access to Potion's infrastructure
 - Interfere with or degrade service for other users
 - Resell or sublicense access to Potion in a way that violates these terms
 
-We reserve the right to remove content or suspend accounts that violate these rules.
+We may remove content or temporarily suspend access where that is necessary and proportionate to deal with a breach of these terms. We may end your account for good cause, normally after a warning and a reasonable chance to put things right, unless the breach justifies ending it immediately. We report suspected crimes where the law requires it.
 
 ---
 
-## 11. No Service Level Agreement
+## 11. Reporting Illegal Content
+
+If you think something Potion hosts is illegal, including content that infringes your copyright, email christo@withpotion.io. You do not need an account to report it. We read reports in German and English.
+
+So that we can act on a report, please include:
+
+- why you believe the content is illegal
+- the exact address where you found it, such as the episode page link (`api.withpotion.io/e/...`) or the audio link
+- your name and email address, which you may leave out if the report concerns child sexual abuse material
+- a statement that you believe in good faith that the report is accurate and complete
+
+Each report then goes through the following steps.
+
+- We confirm that we received it.
+- A person reviews every report.
+- If the content is illegal or breaks these terms, we remove it. Removal covers the audio, the episode page, and the text the episode was narrated from.
+- We tell you what we decided, including when we decide not to act, and how you can challenge the decision: by replying and asking us to look again, or in court.
+- We tell the account holder what was removed and why, and how they can ask us to reconsider. We do not tell them who made the report unless the law requires it.
+
+Some checks run automatically before anything is narrated, as described in Section 7: refused domains, pages that yield too little text, and robots.txt. No other decision about content is made automatically.
+
+The same address is our point of contact for authorities, the European Commission and the European Board for Digital Services. Users can also reach us through [GitHub issues](https://github.com/withpotion/potion/issues).
+
+---
+
+## 12. No Service Level Agreement
 
 Potion is provided "as is" and "as available." We do not guarantee any specific uptime, availability, or response time. We will do our best to keep the service running, but we make no SLA commitments.
 
 ---
 
-## 12. Limitation of Liability
+## 13. Liability
 
-To the maximum extent permitted by applicable law, 9592 Solutions UG's total liability to you for any claim arising out of or related to these terms or your use of Potion is limited to the greater of:
+9592 Solutions UG is liable without limitation for intentional or grossly negligent conduct, and for negligently causing death or injury to body or health.
 
-(a) the fees you paid to Potion in the three months immediately preceding the claim, or
-(b) EUR 50.
+For ordinary negligence, we are liable only if we breach an essential contractual duty, meaning a duty that has to be performed for Potion to work as agreed and that you may reasonably rely on. That liability is limited to damage that was foreseeable when the contract was made and is typical for a contract of this kind. Otherwise we are not liable for ordinary negligence.
 
-Note: German law does not permit exclusion of liability for death or bodily injury caused by negligence, or for damages caused by intentional misconduct or gross negligence (see BGB Section 309 No. 7). This limitation does not apply to such claims.
+These rules also apply to our legal representatives and to the people we use to perform the contract. They do not affect liability for fraudulently concealed defects, under a guarantee we have given, under the Product Liability Act (Produkthaftungsgesetz), or under Article 82 GDPR.
 
-We are not liable for indirect, incidental, consequential, or punitive damages.
+Your statutory rights are not affected, including your rights to have defects fixed, to reduce the price, to cancel, and to a refund.
 
 ---
 
-## 13. Termination
+## 14. Termination
 
 **By you**: Stop using the API at any time. Cancel your subscription via the billing portal. You may request deletion of your account and data by emailing christo@withpotion.io.
 
-**By us**: We may suspend or terminate your account if you violate these terms. We will give reasonable notice where practical, but reserve the right to act immediately for serious violations.
+**By us**: We may end your account as described in Section 10.
 
 On termination, your data will be deleted within a reasonable timeframe. Content stored in R2 (uploaded and generated audio) and database records (feeds, episodes, account data, connector tokens, render jobs, and text-to-speech usage records) will be removed.
 
 ---
 
-## 14. Changes to These Terms
+## 15. Changes to These Terms
 
 We may update these terms from time to time. When we do, we will update the version number and effective date at the top of this file. Because this document lives in a public GitHub repository, you can see every change via `git log TOS.md`. Continued use of Potion after changes are posted constitutes acceptance of the updated terms. We will provide advance notice of material changes where reasonably possible.
 
 ---
 
-## 15. Governing Law and Dispute Resolution
+## 16. Governing Law and Dispute Resolution
 
 These terms are governed by German law, excluding conflict of law provisions.
 
@@ -187,7 +212,7 @@ For consumers in the EU: you may have the right to use alternative dispute resol
 
 ---
 
-## 16. Contact
+## 17. Contact
 
 For questions about these terms, data requests, or account issues:
 
@@ -195,7 +220,7 @@ Email: christo@withpotion.io
 
 ---
 
-## 17. Impressum (pursuant to Section 5 TMG)
+## 18. Impressum (pursuant to Section 5 TMG)
 
 **Angaben gemass Section 5 TMG:**
 
