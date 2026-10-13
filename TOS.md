@@ -1,7 +1,7 @@
 # Terms of Service
 
 **Version**: v1.5
-**Effective date**: October 13, 2026
+**Effective date**: October 14, 2026
 
 These terms govern your use of Potion (withpotion.io), an RSS feed management API for AI agents. By verifying your email during signup, either by clicking the magic link or by entering the sign-in code we email you, you accept these terms.
 
@@ -28,7 +28,7 @@ Potion is an API. You (or an AI agent acting on your behalf) call API endpoints 
 
 Potion also speaks the Model Context Protocol at `api.withpotion.io/mcp`, so an assistant such as ChatGPT or Claude can be connected to your account and do the same things through that connection.
 
-There is no dashboard. The web pages Potion serves are the ones the service needs in order to work: the sign-in page you reach when connecting an assistant, the page an emailed link opens, the pages Stripe returns you to after checkout, and the public page for a shared episode (Section 8).
+There is no dashboard. The web pages Potion serves are the ones the service needs in order to work: the sign-in page you reach when connecting an assistant, the page an emailed link opens, the pages Stripe returns you to after checkout, the public page for a shared episode (Section 8), the page a feed's address shows when you open it in a web browser, which helps you add the feed to a podcast app, and a page of links to these terms and the Privacy Policy.
 
 ---
 

@@ -1,7 +1,7 @@
 # Privacy Policy
 
 **Effective date**: February 23, 2026
-**Last updated**: October 13, 2026
+**Last updated**: October 14, 2026
 
 Potion (withpotion.io) is operated by 9592 Solutions UG (haftungsbeschrankt), Fahrstr. 217, 40221 Dusseldorf, Germany. We are the data controller for the personal data described in this policy.
 
@@ -13,7 +13,7 @@ Potion (withpotion.io) is operated by 9592 Solutions UG (haftungsbeschrankt), Fa
 
 Potion is an API for AI agents. Agents create RSS podcast feeds, upload audio episodes, have text narrated into audio, point Potion at articles to read aloud, and manage content. Humans subscribe to those feeds in their podcast apps. An assistant such as ChatGPT or Claude can also be connected to an account directly, over OAuth.
 
-There is no dashboard and no marketing platform. The web pages we serve are the ones the service needs in order to work: the magic link verification page shown after signup, the sign-in page you reach when connecting an assistant, the pages Stripe returns you to after checkout, the public page for a shared episode, and a one-page introduction at `/daily` for people who hear about Potion outside of an assistant.
+There is no dashboard and no marketing platform. The web pages we serve are the ones the service needs in order to work: the magic link verification page shown after signup, the sign-in page you reach when connecting an assistant, the pages Stripe returns you to after checkout, the public page for a shared episode, the page a feed's address shows when it is opened in a web browser, a page of links to these documents at `/legal`, and a one-page introduction at `/daily` for people who hear about Potion outside of an assistant.
 
 This shapes what we collect: we have no browsing sessions and no typical web analytics. Almost everything we know about you comes from API calls made on your behalf. Three things sit outside that. We count a view against the episode when someone opens a shared episode page, and record nothing about the person who opened it. We log requests for your feeds and episodes against the feed, so we can tell whether anything is reaching a podcast app. And we count views and clicks on the introduction page, with nothing about who they came from. All three are described below.
 
@@ -89,6 +89,8 @@ Each record holds which feed it was, which episode where there was one, whether 
 
 We do not store your IP address. We use it, together with the User-Agent, to compute a short key that lets us tell one app's several requests for the same episode apart from several different apps asking once each. Without that, a player fetching a long episode in five pieces would look like five downloads. The key is computed through a secret we hold, through the date, and through the episode, so the same app produces a different value tomorrow and a different value for the next episode. It cannot be used to follow anyone across days or across episodes, and it cannot be turned back into an address.
 
+Opening a feed's address in a web browser shows a page that helps you add the feed to a podcast app, instead of the feed itself. That request is recorded the same way, as a browser asking for the feed.
+
 We classify the requesting app only coarsely: podcast app, browser or crawler, plus its name where that is unambiguous. We do not build a device fingerprint, and we do not route these requests through a third-party measurement service.
 
 Records of individual requests are deleted after 14 days. Before they are deleted they are counted into daily totals per feed, episode and app type, and those totals are kept. The totals carry no per-request key and cannot be resolved back to a client.
@@ -111,7 +113,7 @@ Legal basis: legal obligation (Art. 6(1)(c)), because the Digital Services Act r
 
 ### Analytics (Mixpanel)
 
-We track API usage events such as feed and episode creation, deletion, and access; signup and authentication events, including connector sign-ins; billing events; rate limit or upload rejection events; text-to-speech jobs; article extractions; and views of shared episode pages.
+We track API usage events such as feed and episode creation, deletion, and access; signup and authentication events, including connector sign-ins; billing events; rate limit or upload rejection events; text-to-speech jobs; article extractions; views of shared episode pages, and views of the page a feed's address shows in a browser.
 
 Event properties include things like file size, MIME type, source type, the voice used, characters submitted and seconds of audio produced, and, for an article extraction, the hostname of the page. We do not send the text you had narrated, the text extracted from a page, or the full URL.
 
@@ -155,6 +157,10 @@ Each processor is engaged under data processing terms covering the service we us
 
 RSS feeds are served at secret URLs. The URL is unguessable - it contains a nanoid with sufficient entropy to be practically private. There is no authentication on the RSS endpoint by design, so podcast apps can subscribe directly.
 
+Every feed carries the standard tags that ask podcast directories not to list it publicly (`itunes:block` and `podcast:block`).
+
+Opened in a web browser, a feed's address shows a page with buttons for several podcast apps. A button hands the feed's address to the app you choose. Some podcast apps, Pocket Casts and Overcast among them, fetch feeds from their provider's servers and not from your phone, so that provider then holds the address as well. The page's QR code is drawn by Potion itself, and the address is not sent to any other service to make it.
+
 We do not know who subscribes to a feed. A podcast app does not identify itself or its user, and nothing in the request tells us who is holding the URL.
 
 We do record that the request happened, against the feed. Because a feed belongs to an account, those records are linkable to the account that owns the feed - they are covered under Feed and episode requests above. What they cannot do is say anything about the person at the other end: there is no subscriber identifier, and the key that groups one app's repeated requests is different every day.
@@ -173,7 +179,7 @@ A shared episode page plays its audio through the page's own address rather than
 
 ## Cookies and tracking
 
-None of the pages listed under What Potion is sets a cookie, stores anything in your browser, or loads external scripts or tracking pixels. Each is a self-contained HTML page served directly from our Worker. The only things any of them may fetch from elsewhere are a shared episode's artwork, and its audio when that audio is hosted somewhere other than Potion - both described above.
+None of the pages listed under What Potion is sets a cookie, stores anything in your browser, or loads external scripts or tracking pixels. Each is a self-contained HTML page served directly from our Worker. The only things any of them may fetch from elsewhere are a feed's or a shared episode's artwork, and an episode's audio when that audio is hosted somewhere other than Potion. The page a feed's address shows can also place that address on your clipboard, when you press its copy button or its Apple Podcasts button.
 
 We do not use cookies anywhere on withpotion.io.
 
