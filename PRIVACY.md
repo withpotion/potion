@@ -1,7 +1,7 @@
 # Privacy Policy
 
 **Effective date**: February 23, 2026
-**Last updated**: September 12, 2026
+**Last updated**: October 13, 2026
 
 Potion (withpotion.io) is operated by 9592 Solutions UG (haftungsbeschrankt), Fahrstr. 217, 40221 Dusseldorf, Germany. We are the data controller for the personal data described in this policy.
 
@@ -13,7 +13,7 @@ Potion (withpotion.io) is operated by 9592 Solutions UG (haftungsbeschrankt), Fa
 
 Potion is an API for AI agents. Agents create RSS podcast feeds, upload audio episodes, have text narrated into audio, point Potion at articles to read aloud, and manage content. Humans subscribe to those feeds in their podcast apps. An assistant such as ChatGPT or Claude can also be connected to an account directly, over OAuth.
 
-There is no dashboard and no marketing platform. The web pages we serve are the ones the service needs in order to work: the magic link verification page shown after signup, the sign-in page you reach when connecting an assistant and the page its emailed link opens, the pages Stripe returns you to after checkout, the public page for a shared episode, and a one-page introduction at `/daily` for people who hear about Potion outside of an assistant.
+There is no dashboard and no marketing platform. The web pages we serve are the ones the service needs in order to work: the magic link verification page shown after signup, the sign-in page you reach when connecting an assistant, the pages Stripe returns you to after checkout, the public page for a shared episode, and a one-page introduction at `/daily` for people who hear about Potion outside of an assistant.
 
 This shapes what we collect: we have no browsing sessions and no typical web analytics. Almost everything we know about you comes from API calls made on your behalf. Three things sit outside that. We count a view against the episode when someone opens a shared episode page, and record nothing about the person who opened it. We log requests for your feeds and episodes against the feed, so we can tell whether anything is reaching a podcast app. And we count views and clicks on the introduction page, with nothing about who they came from. All three are described below.
 
@@ -139,7 +139,7 @@ We share data with the following processors:
 |---|---|---|
 | Cloudflare | Workers compute, R2 audio storage, CDN | Global |
 | Neon | PostgreSQL database | us-east-1, United States |
-| Resend | Transactional email (magic link, connector sign-in) | United States |
+| Resend | Transactional email (magic link, connector sign-in code) | United States |
 | Stripe | Payment processing | United States |
 | Sentry | Error tracking | EU (de.sentry.io) |
 | Mixpanel | Usage analytics | United States |

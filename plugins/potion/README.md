@@ -21,8 +21,8 @@ whatever podcast app you already use.
 /plugin install potion@potion
 ```
 
-Then `/mcp` to authorize the connector. Potion signs you in with an emailed link, and clicking it
-creates your account if you do not have one yet.
+Then `/mcp` to authorize the connector. Potion emails you a 6-digit code, and typing it into the
+sign-in page creates your account if you do not have one yet.
 
 ## What it does not do
 

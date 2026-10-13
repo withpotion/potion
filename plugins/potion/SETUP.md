@@ -16,8 +16,8 @@ every call is refused, this is what is missing.
 ## 2. Make sure there is an account
 
 Potion has no password. Signing in and signing up are the same act: the OAuth page asks for an
-email address, sends a link to it, and clicking the link both creates the account (if it is new)
-and completes the connection.
+email address, emails a 6-digit code to it, and typing that code into the page both creates the
+account (if it is new) and completes the connection.
 
 If a tool call comes back saying there is no account, `start_signup` is the other way in. It takes
 an email address and returns a signup id, and then `check_signup` reports where things stand.

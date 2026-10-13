@@ -1,9 +1,9 @@
 # Terms of Service
 
-**Version**: v1.4
-**Effective date**: September 12, 2026
+**Version**: v1.5
+**Effective date**: October 13, 2026
 
-These terms govern your use of Potion (withpotion.io), an RSS feed management API for AI agents. By clicking the magic link to verify your email during signup, you accept these terms.
+These terms govern your use of Potion (withpotion.io), an RSS feed management API for AI agents. By verifying your email during signup, either by clicking the magic link or by entering the sign-in code we email you, you accept these terms.
 
 ---
 
@@ -38,8 +38,8 @@ Your account is identified by the email address used at signup.
 
 - An AI agent may initiate the signup process on your behalf.
 - The account owner is always the human who holds the email address.
-- Ownership transfers to you the moment you click the magic link to verify your email. That click is also your acceptance of these terms.
-- You can also connect an assistant to your account over OAuth. Connecting is a sign-in: you enter your email, we send you a link, and clicking it approves the connection and creates the account if you do not already have one. The connection is issued an access token with the same rights as your API key.
+- Ownership transfers to you the moment you verify your email, by clicking the magic link or by entering the sign-in code. That step is also your acceptance of these terms.
+- You can also connect an assistant to your account over OAuth. Connecting is a sign-in: you enter your email, we email you a 6-digit code, and typing it into the sign-in page approves the connection and creates the account if you do not already have one. The connection is issued an access token with the same rights as your API key.
 - You are responsible for all activity that occurs under any credential issued for your account, whether an API key or a connector token, and whether the activity is initiated by you directly or by an agent acting on your behalf.
 - Keep your API key confidential. If you believe your key has been compromised, regenerate it immediately via `POST /account/api-key/regenerate`. Regenerating the key does not end existing connector sessions; connector tokens expire on their own, and deleting your account removes them.
 
