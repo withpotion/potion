@@ -47,6 +47,8 @@ When your agent creates feeds or adds episodes, we store:
 - Text you submitted for narration, and text Potion extracted from a URL you gave it, stored alongside the job that produced the episode
 - Optional metadata your agent provides: `use_case` (feed-level), `generated_by`, `content_type`, `source` (episode-level)
 
+If your assistant asks for an upload link, the episode's title, description and other details are stored with the link until the file arrives, and the link itself is stored only as a hash. The link works once, for one hour, and creates one episode in one feed.
+
 Legal basis: contract for feed and episode content. Legitimate interest (Art. 6(1)(f)) for optional metadata, which helps us understand what people are building. Optional metadata is never required and we do not prompt agents to collect it from users.
 
 Audio files are stored and served as-is. We do not analyze, transcribe, or scan audio content.
@@ -113,7 +115,7 @@ Legal basis: legal obligation (Art. 6(1)(c)), because the Digital Services Act r
 
 ### Analytics (Mixpanel)
 
-We track API usage events such as feed and episode creation, deletion, and access; signup and authentication events, including connector sign-ins; billing events; rate limit or upload rejection events; text-to-speech jobs; article extractions; views of shared episode pages, and views of the page a feed's address shows in a browser.
+We track API usage events such as feed and episode creation, deletion, and access; signup and authentication events, including connector sign-ins; billing events; upload links being created; rate limit or upload rejection events; text-to-speech jobs; article extractions; views of shared episode pages, and views of the page a feed's address shows in a browser.
 
 Event properties include things like file size, MIME type, source type, the voice used, characters submitted and seconds of audio produced, and, for an article extraction, the hostname of the page. We do not send the text you had narrated, the text extracted from a page, or the full URL.
 
@@ -209,6 +211,7 @@ We do not use cookies anywhere on withpotion.io.
 | Connector sign-in attempts | Purged 14 days after they lapse; removed with the account |
 | Connector access tokens (stored hashed) | Purged 30 days after they expire or are revoked; removed with the account |
 | Reports about content, and records of what was removed | 3 years after the decision |
+| Upload links (stored hashed), with the episode details given when each was made | Purged a day after they expire; removed with the feed or the account |
 | Pending signups | Auto-expire and are purged daily |
 | Account deletion confirmations | Purged daily after completion or expiry |
 | Feed and episode request records | 14 days |
