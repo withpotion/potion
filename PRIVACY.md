@@ -97,6 +97,8 @@ We classify the requesting app only coarsely: podcast app, browser or crawler, p
 
 Records of individual requests are deleted after 14 days. Before they are deleted they are counted into daily totals per feed, episode and app type, and those totals are kept. The totals carry no per-request key and cannot be resolved back to a client.
 
+The owner of a feed can see three facts from these records about their own feed: whether a podcast app has fetched it, which app it was where the app names itself, and when the first and the latest fetch happened.
+
 Legal basis: legitimate interest (Art. 6(1)(f)). We need to know whether feeds are being delivered at all, and to size storage and bandwidth.
 
 ### The introduction page
