@@ -91,7 +91,7 @@ We do not store your IP address. We use it, together with the User-Agent, to com
 
 Opening a feed's address in a web browser shows a page that helps you add the feed to a podcast app, instead of the feed itself. That request is recorded the same way, as a browser asking for the feed.
 
-We classify the requesting app only coarsely: podcast app, browser or crawler, plus its name where that is unambiguous. We do not build a device fingerprint, and we do not route these requests through a third-party measurement service.
+We classify the requesting app only coarsely: podcast app, browser or crawler, plus its name where that is unambiguous. We do not build a device fingerprint, and we do not route these requests through a third-party measurement service. Our error tracker receives a timing record for about one request in ten, without the IP address, as described under Error tracking below.
 
 Records of individual requests are deleted after 14 days. Before they are deleted they are counted into daily totals per feed, episode and app type, and those totals are kept. The totals carry no per-request key and cannot be resolved back to a client.
 
@@ -123,9 +123,22 @@ Legal basis: legitimate interest. We use this data to understand how Potion is u
 
 ### Error tracking (Sentry)
 
-When the API encounters errors, we log error events, stack traces, and request metadata to Sentry. We do not intentionally include personal data in error events. Sentry is hosted in the EU (de.sentry.io).
+When a request fails inside Potion, we send Sentry a record of the failure. For about one request in ten we also send a timing record, which shows us what is slow. Requests for feeds, episode audio and shared episode pages are included in both.
 
-Legal basis: legitimate interest. We need error data to keep the service running reliably.
+A record holds the following:
+
+- the error and where in our code it happened
+- the request's method and address, which for a feed request is the feed's address
+- the requesting app's User-Agent and a few technical headers, such as the content type
+- for a signed-in request, the account's ID and tier
+- the messages our code logged while handling the request, and the host names of the other services Potion contacted to answer it
+- for a billing notification we could not match to an account, the Stripe customer ID
+
+Before a record leaves Potion we remove the requester's IP address, credentials and cookies, and the values of anything after the `?` in the address. We also remove the single-use token in a sign-in or confirmation link, the values a failed database query was run with, and anything in the error text that is shaped like an email address.
+
+Sentry is hosted in the EU (de.sentry.io) and keeps these records for 30 days.
+
+Legal basis: legitimate interest. We need error and timing data to keep the service running reliably.
 
 ### Billing (Stripe)
 
@@ -171,7 +184,7 @@ We do record that the request happened, against the feed. Because a feed belongs
 
 Every episode has a public page at an unguessable URL, and anyone holding that URL can play the episode without signing in. The page does not reveal which feed the episode belongs to or where that feed is served.
 
-We count a view against the episode and record nothing about the person viewing. The pages are served with a header asking search engines not to index them.
+We count a view against the episode and record nothing about the person viewing. The error tracker's records described under Error tracking apply to these pages as they do to any request: they hold the browser's User-Agent and not the IP address. The pages are served with a header asking search engines not to index them.
 
 A shared episode page plays its audio through the page's own address rather than the file's. Audio Potion holds is passed through by Potion, so nothing about where the file is stored reaches the person listening. Audio hosted elsewhere - an address the feed's owner supplied - is redirected to that host, which then sees the request. Artwork, if the episode has any, is still loaded from wherever it points.
 
@@ -202,7 +215,7 @@ We do not use cookies anywhere on withpotion.io.
 | Daily delivery totals | Kept; removed with the feed or the account |
 | Introduction-page views and clicks | 400 days |
 | Analytics events | 12 months (Mixpanel project setting) |
-| Error events | 90 days (Sentry project setting) |
+| Error and timing records | 30 days (Sentry) |
 
 ---
 
