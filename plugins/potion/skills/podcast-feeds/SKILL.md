@@ -38,13 +38,14 @@ subscribers see the change on their next refresh.
 
 ## Things that will trip you up
 
-**The audio has to already exist at a URL.** `add_episode` takes an `audio_url`, and Potion either
-stores that file or references it. Audio sitting on the user's own disk cannot go through a tool
-call at all. The plugin's `upload-local-audio` skill covers that case.
+**`add_episode` takes a URL; a file goes through `create_upload_link`.** `add_episode` takes an
+`audio_url`, and Potion either stores that file or references it. A file the user has, or one you
+made, goes through `create_upload_link` and one HTTP PUT; the plugin's `upload-local-audio` skill
+covers that case.
 
 **This connector does not make audio.** Potion's own API narrates text, but that part is not in
 this connector. If the user wants something read aloud, produce the audio with whatever
-text-to-speech they have, put it somewhere reachable, and add it as an episode.
+text-to-speech they have and upload the file as an episode.
 
 **A new episode is not instant for the listener.** Podcast apps refresh on their own schedule, so
 tell the user to pull to refresh, or send them the episode's `share_url` if they want it now.

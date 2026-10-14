@@ -24,7 +24,7 @@ Read this README to understand what Potion can do, then head to [api.withpotion.
 
 Potion speaks MCP at `https://api.withpotion.io/mcp`. Add it as a custom connector in ChatGPT or Claude, authenticate with your `pk_` API key as a bearer token, and your assistant can make feeds and add episodes without you writing any code.
 
-The tools are generated from the API itself, so they do exactly what the endpoints do. The HTTP API stays the larger surface — large file uploads and API key regeneration are HTTP-only, because a tool call can't carry raw audio and a connector has nowhere to store a replacement key.
+The tools are generated from the API itself, so they do exactly what the endpoints do. A tool call can't carry raw audio, so to add a file the connector's `create_upload_link` tool hands your assistant a single-use upload address, and one HTTP PUT of the file creates the episode. The HTTP API stays the larger surface: files over 90 MB and API key regeneration are HTTP-only, because a connector has nowhere to store a replacement key.
 
 ### In Claude Code and Cowork
 

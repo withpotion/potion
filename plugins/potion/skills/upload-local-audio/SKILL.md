@@ -1,22 +1,38 @@
 ---
 name: upload-local-audio
-description: Get an audio file that lives on this machine into a Potion podcast feed. Use this whenever the user points at a local file - an mp3, m4a, wav, a recording they just made, something a text-to-speech run produced, a file in Downloads - and wants it in their feed. The Potion connector's add_episode cannot do this, because a tool call has no way to carry the bytes, so reach for this skill instead of reporting that it is impossible. Also use it when an upload came back with an unreadable 413, which means the file needs to go up in parts.
+description: Get an audio file the user has, or one you made, into a Potion podcast feed. Use this whenever the user points at a file - an mp3, m4a, wav, a recording they just made, something a text-to-speech run produced, a file in Downloads or attached to the conversation - and wants it in their feed. add_episode takes only a URL; this skill covers files. Also use it when an upload came back with an unreadable 413, which means the file needs to go up in parts.
 ---
 
-# Uploading audio from this machine
+# Uploading an audio file
 
-Potion's tools take an audio URL. A file on disk has no URL, so it goes up over the HTTP API
-instead, which the connector sits alongside rather than replaces. Everything here is a `curl` call.
+`add_episode` takes an audio URL, so a file goes another way: the connector's `create_upload_link`
+tool, then one HTTP PUT of the file. No API key is involved, and nothing about Potion needs to be
+built or registered.
 
-## What you need first
+## With the connector: create_upload_link
 
-The API key. It starts with `pk_` and Potion shows it exactly once, on the page the signup link
-opens, so the user has it saved somewhere or they do not have it at all. The connector cannot
-fetch it back, and neither can this skill. If it is gone, `christo@withpotion.io` is the address
-to write to.
+Call `create_upload_link` with the feed and the episode's title (and description, if there is
+one). It returns an `upload_url` that works once, for an hour, and creates that one episode, plus
+`max_bytes` for this account and ready-made `curl` and Python examples. Send the raw file with a
+PUT from wherever the file is - a shell, or code execution with network access:
 
-Ask the user for the key rather than hunting for it, and put it in the environment for the calls
-rather than into a message:
+```bash
+curl -T /path/to/episode.mp3 "$UPLOAD_URL"
+```
+
+The response is the episode, including its `share_url`; give that to the user if they want to hear
+it before their podcast app next refreshes. An error answers in JSON and says whether the same link
+still works. If you have no way to make an HTTP request from where the file is, tell the user
+plainly: the link is the only way in without an API key, so a homemade uploader or a newly
+registered OAuth client will not get the file there. If the file is larger than `max_bytes`, re-encode it (speech is
+fine at 64 to 96 kbps) or use the API key route below.
+
+## With an API key
+
+People who signed up through the API have a key starting with `pk_`, shown once on the page the
+signup link opened. Someone who connected through Claude or ChatGPT has never seen one and does not
+need it; use the upload link above. If the user does have a key, ask them for it rather than hunting
+for it, and put it in the environment rather than into a message:
 
 ```bash
 read -rs POTION_KEY && export POTION_KEY
@@ -24,7 +40,7 @@ read -rs POTION_KEY && export POTION_KEY
 
 You also need the feed's id, which `list_feeds` gives you through the connector.
 
-## Under about 90 MB, which is nearly everything
+### Under about 90 MB, which is nearly everything
 
 One call. MP3, MP4/M4A, AAC, OGG, Opus, FLAC, WAV and WebM all work, and Potion reads the real
 format from the file rather than trusting what you declare.
@@ -40,7 +56,7 @@ curl -X POST "https://api.withpotion.io/feeds/$FEED_ID/episodes" \
 The response is the episode, including its `share_url`. Give that to the user if they want to
 hear it before their podcast app next refreshes.
 
-## Over that, in parts
+### Over that, in parts
 
 The ceiling is the network edge rather than Potion, so an oversized single request comes back as a
 bare `413` HTML page with nothing readable in it. That is the signal to switch to the three-step
