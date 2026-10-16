@@ -13,7 +13,7 @@ Potion (withpotion.io) is operated by 9592 Solutions UG (haftungsbeschrankt), Fa
 
 Potion is an API for AI agents. Agents create RSS podcast feeds, upload audio episodes, have text narrated into audio, point Potion at articles to read aloud, and manage content. Humans subscribe to those feeds in their podcast apps. An assistant such as ChatGPT or Claude can also be connected to an account directly, over OAuth.
 
-There is no dashboard and no marketing platform. The web pages we serve are the ones the service needs in order to work: the magic link verification page shown after signup, the sign-in page you reach when connecting an assistant, the pages Stripe returns you to after checkout, the public page for a shared episode, the page a feed's address shows when it is opened in a web browser, a page of links to these documents at `/legal`, and a one-page introduction at `/daily` for people who hear about Potion outside of an assistant.
+There is no dashboard and no marketing platform. The web pages we serve are the ones the service needs in order to work: the magic link verification page shown after signup, the sign-in page you reach when connecting an assistant, a page where you sign in with an emailed code to choose a paid plan before paying through Stripe, the pages Stripe returns you to after checkout, the public page for a shared episode, the page a feed's address shows when it is opened in a web browser, a page of links to these documents at `/legal`, and a one-page introduction at `/daily` for people who hear about Potion outside of an assistant.
 
 This shapes what we collect: we have no browsing sessions and no typical web analytics. Almost everything we know about you comes from API calls made on your behalf. Three things sit outside that. We count a view against the episode when someone opens a shared episode page, and record nothing about the person who opened it. We log requests for your feeds and episodes against the feed, so we can tell whether anything is reaching a podcast app. And we count views and clicks on the introduction page, with nothing about who they came from. All three are described below.
 
@@ -117,11 +117,11 @@ Legal basis: legal obligation (Art. 6(1)(c)), because the Digital Services Act r
 
 ### Analytics (Mixpanel)
 
-We track API usage events such as feed and episode creation, deletion, and access; signup and authentication events, including connector sign-ins; billing events; upload links being created; rate limit, plan limit or upload rejection events; text-to-speech jobs; article extractions; each call an assistant makes to one of Potion's tools through a connector, with which tool it was and whether it worked, was refused or failed, but nothing that was sent to it; views of shared episode pages, and views of the page a feed's address shows in a browser.
+We track API usage events such as feed and episode creation, deletion, and access; signup and authentication events, including connector sign-ins and sign-ins on the plan page; billing events; upload links being created; rate limit, plan limit or upload rejection events; text-to-speech jobs; article extractions; each call an assistant makes to one of Potion's tools through a connector, with which tool it was and whether it worked, was refused or failed, but nothing that was sent to it; views of shared episode pages, and views of the page a feed's address shows in a browser.
 
 Event properties include things like file size, MIME type, source type, the voice used, characters submitted and seconds of audio produced, and, for an article extraction, the hostname of the page. We do not send the text you had narrated, the text extracted from a page, or the full URL.
 
-For events that belong to an account, we use your user ID as the Mixpanel distinct ID. Signup and connector sign-in happen before we know which account is involved, so those events are keyed by the email address entered instead. A view of a shared episode page is keyed by the episode. We do not send your API key to Mixpanel.
+For events that belong to an account, we use your user ID as the Mixpanel distinct ID. Signup, connector sign-in and the plan page's sign-in code happen before we know which account is involved, so those events are keyed by the email address entered instead. A view of a shared episode page is keyed by the episode. We do not send your API key to Mixpanel.
 
 Legal basis: legitimate interest. We use this data to understand how Potion is used and to make product decisions.
 
@@ -210,7 +210,7 @@ We do not use cookies anywhere on withpotion.io.
 | Audio files (R2), uploaded and generated | Deleted when episode or feed is deleted, or when account is closed |
 | Text-to-speech usage records | Duration of account |
 | Render jobs, including the submitted or extracted text | Duration of account |
-| Connector sign-in attempts | Purged 14 days after they lapse; removed with the account |
+| Sign-in attempts (connecting an assistant, or choosing a plan) | Purged 14 days after they lapse; removed with the account |
 | Connector access tokens (stored hashed) | Purged 30 days after they expire or are revoked; removed with the account |
 | Reports about content, and records of what was removed | 3 years after the decision |
 | Upload links (stored hashed), with the episode details given when each was made | Purged a day after they expire; removed with the feed or the account |
