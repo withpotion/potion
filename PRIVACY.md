@@ -1,7 +1,7 @@
 # Privacy Policy
 
 **Effective date**: February 23, 2026
-**Last updated**: October 14, 2026
+**Last updated**: October 16, 2026
 
 Potion (withpotion.io) is operated by 9592 Solutions UG (haftungsbeschrankt), Fahrstr. 217, 40221 Dusseldorf, Germany. We are the data controller for the personal data described in this policy.
 
@@ -117,7 +117,7 @@ Legal basis: legal obligation (Art. 6(1)(c)), because the Digital Services Act r
 
 ### Analytics (Mixpanel)
 
-We track API usage events such as feed and episode creation, deletion, and access; signup and authentication events, including connector sign-ins; billing events; upload links being created; rate limit or upload rejection events; text-to-speech jobs; article extractions; views of shared episode pages, and views of the page a feed's address shows in a browser.
+We track API usage events such as feed and episode creation, deletion, and access; signup and authentication events, including connector sign-ins; billing events; upload links being created; rate limit, plan limit or upload rejection events; text-to-speech jobs; article extractions; each call an assistant makes to one of Potion's tools through a connector, with which tool it was and whether it worked, was refused or failed, but nothing that was sent to it; views of shared episode pages, and views of the page a feed's address shows in a browser.
 
 Event properties include things like file size, MIME type, source type, the voice used, characters submitted and seconds of audio produced, and, for an article extraction, the hostname of the page. We do not send the text you had narrated, the text extracted from a page, or the full URL.
 
