@@ -1,7 +1,7 @@
 # Privacy Policy
 
 **Effective date**: February 23, 2026
-**Last updated**: October 16, 2026
+**Last updated**: October 17, 2026
 
 Potion (withpotion.io) is operated by 9592 Solutions UG (haftungsbeschrankt), Fahrstr. 217, 40221 Dusseldorf, Germany. We are the data controller for the personal data described in this policy.
 
@@ -121,7 +121,7 @@ We track API usage events such as feed and episode creation, deletion, and acces
 
 Event properties include things like file size, MIME type, source type, the voice used, characters submitted and seconds of audio produced, and, for an article extraction, the hostname of the page. We do not send the text you had narrated, the text extracted from a page, or the full URL.
 
-For events that belong to an account, we use your user ID as the Mixpanel distinct ID. Signup, connector sign-in and the plan page's sign-in code happen before we know which account is involved, so those events are keyed by the email address entered instead. A view of a shared episode page is keyed by the episode. We do not send your API key to Mixpanel.
+For events that belong to an account, we use your user ID as the Mixpanel distinct ID. Signup, connector sign-in and the plan page's sign-in code happen before we know which account is involved, so those events are keyed by the email address entered instead. A view of a shared episode page is keyed by the episode. A request for one of your feeds, and a view of the page a feed's address shows in a browser, are keyed by a code we derive from the feed using a secret we hold, and the same code stands in for the feed wherever another event refers to one. We do not send a feed's address or its ID to Mixpanel, and we do not send your API key.
 
 Legal basis: legitimate interest. We use this data to understand how Potion is used and to make product decisions.
 
