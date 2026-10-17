@@ -20,9 +20,13 @@ Point your agent at this repo and it will handle the rest.
 
 Read this README to understand what Potion can do, then head to [api.withpotion.io/docs](https://api.withpotion.io/docs) for the full API reference.
 
-## Connect Potion to ChatGPT or Claude
+## Connect Potion to ChatGPT, Claude or another assistant
 
-Potion speaks MCP at `https://api.withpotion.io/mcp`. Add it as a custom connector in ChatGPT or Claude, authenticate with your `pk_` API key as a bearer token, and your assistant can make feeds and add episodes without you writing any code.
+Potion speaks MCP at `https://api.withpotion.io/mcp`. In ChatGPT, add Potion from its page in the ChatGPT directory. In Claude, or any other assistant that can add an MCP server, add that address as a custom connector and choose to sign in with OAuth. Potion asks for your email address and emails you a 6-digit code. Once you type it in, your assistant is connected, and if you're new to Potion this also creates your account. After that your assistant can make feeds and add episodes without you writing any code.
+
+In Claude's "Add custom connector" dialog, choose "Sign in now" under Authentication and "Register automatically" under OAuth client. Claude suggests other options for both, and Potion doesn't work with them.
+
+Code that calls the HTTP API directly, rather than through an assistant's connector, authenticates with a `pk_` API key as a bearer token. The [API docs](https://api.withpotion.io/docs) describe how to get one.
 
 The tools are generated from the API itself, so they do exactly what the endpoints do. A tool call can't carry raw audio, so to add a file the connector's `create_upload_link` tool hands your assistant a single-use upload address, and one HTTP PUT of the file creates the episode. The HTTP API stays the larger surface: files over 90 MB and API key regeneration are HTTP-only, because a connector has nowhere to store a replacement key.
 
