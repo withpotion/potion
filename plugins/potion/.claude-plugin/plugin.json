@@ -11,9 +11,16 @@
   },
   "homepage": "https://api.withpotion.io/docs",
   "repository": "https://github.com/withpotion/potion",
-  "keywords": ["podcast", "rss", "audio", "feed", "briefing"],
+  "keywords": [
+    "podcast",
+    "rss",
+    "audio",
+    "feed",
+    "briefing"
+  ],
   "icon": "./icon.png",
   "documentationUrl": "https://github.com/withpotion/potion/tree/main/plugins/potion",
   "supportUrl": "https://github.com/withpotion/potion/issues",
-  "termsOfServiceUrl": "https://github.com/withpotion/potion/blob/main/TOS.md"
+  "termsOfServiceUrl": "https://github.com/withpotion/potion/blob/main/TOS.md",
+  "privacyPolicyUrl": "https://github.com/withpotion/potion/blob/main/PRIVACY.md"
 }
