@@ -1,7 +1,7 @@
 {
   "$schema": "https://json.schemastore.org/claude-code-plugin-manifest.json",
   "name": "potion",
-  "displayName": "Potion",
+  "displayName": "Potion Podcasts",
   "version": "0.1.2",
   "description": "A podcast just for you",
   "author": {
