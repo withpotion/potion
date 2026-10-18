@@ -1,7 +1,7 @@
 # Privacy Policy
 
 **Effective date**: February 23, 2026
-**Last updated**: October 17, 2026
+**Last updated**: October 18, 2026
 
 Potion (withpotion.io) is operated by 9592 Solutions UG (haftungsbeschrankt), Fahrstr. 217, 40221 Dusseldorf, Germany. We are the data controller for the personal data described in this policy.
 
@@ -150,6 +150,12 @@ Sentry is hosted in the EU (de.sentry.io) and keeps these records for 30 days.
 
 Legal basis: legitimate interest. We need error and timing data to keep the service running reliably.
 
+### AI tools we use to run Potion
+
+We use AI assistants in our own work on Potion: Claude, made by Anthropic, and ChatGPT and Codex, made by OpenAI. Both companies are based in the United States. When we use them to fix a problem, change the service or understand how it is used, they see whatever we give them from our database and logs. That can include any of the data described in this policy, such as account IDs, email addresses, the titles and descriptions of feeds and episodes, and the text of episodes.
+
+Legal basis: legitimate interest (Art. 6(1)(f)). These tools are how we build and run Potion, and that work means looking at real records.
+
 ### Billing (Stripe)
 
 If you upgrade to Potion Plus, you pay via Stripe Checkout. Card numbers and payment details never touch our servers. We store only your Stripe customer ID and subscription ID.
@@ -172,7 +178,9 @@ We share data with the following processors:
 | OpenAI | Text-to-speech, premium voices | United States |
 | Jina AI | Article extraction, fallback only | Germany (company registration) |
 
-Each processor is engaged under data processing terms covering the service we use. International transfers rely on the EU-US Data Privacy Framework and/or Standard Contractual Clauses (SCCs).
+Each processor in this table is engaged under data processing terms covering the service we use. International transfers rely on the EU-US Data Privacy Framework and/or Standard Contractual Clauses (SCCs).
+
+Anthropic and OpenAI also receive data from our own use of their AI tools, described above under AI tools we use to run Potion.
 
 ---
 
