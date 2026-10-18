@@ -1,6 +1,6 @@
 # Terms of Service
 
-**Version**: v1.7
+**Version**: v1.8
 **Effective date**: October 18, 2026
 
 These terms govern your use of Potion (withpotion.io), an RSS feed management API for AI agents. By verifying your email during signup, either by clicking the magic link or by entering the sign-in code we email you, you accept these terms.
@@ -104,9 +104,10 @@ Potion can fetch a web page you point it at and extract its main text, so that t
 
 ## 8. Shared Episode Pages
 
-Every episode has a public page at `api.withpotion.io/e/{token}`. The URL comes back with the episode when you create it.
+Every episode has a public page at `withpotion.io/e/{title words}-{code}`, for example `withpotion.io/e/morning-briefing-k7Qm2xAb9Zp3`. The URL comes back with the episode when you create it.
 
-- The token is unguessable and is not derived from the episode id or the feed id. The page carries the episode's title, description, artwork and audio, and does not reveal which feed it belongs to or where that feed is served.
+- The code is unguessable and is not derived from the episode id or the feed id. The words before it are the first few words of the episode's title, so anyone who sees the link sees them. If you rename the episode, its link changes to match, and the old link takes people to the new one. Links handed out before 18 October 2026, at `api.withpotion.io/e/shr_...`, keep working the same way.
+- The page carries the episode's title, description, artwork and audio, and does not reveal which feed it belongs to or where that feed is served.
 - The page is public. Anyone holding the link can open and play the episode without signing in, for as long as the episode exists. Sharing the link is publishing that one episode, so treat it that way.
 - An episode with a future publish date is not reachable through its page until that date.
 - The pages are served with a header asking search engines not to index them. Most crawlers respect that; none is obliged to.
