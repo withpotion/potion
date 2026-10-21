@@ -1,7 +1,7 @@
 # Privacy Policy
 
 **Effective date**: February 23, 2026
-**Last updated**: October 19, 2026
+**Last updated**: October 21, 2026
 
 Potion (withpotion.io) is operated by 9592 Solutions UG (haftungsbeschrankt), Fahrstr. 217, 40221 Dusseldorf, Germany. We are the data controller for the personal data described in this policy.
 
@@ -80,6 +80,10 @@ Premium voices are synthesized by OpenAI, in the United States. OpenAI states th
 Only the text to be narrated and the name of the voice are sent. Your email address, your account ID, and your API key are not.
 
 When you point Potion at a URL, Potion fetches the page itself from Cloudflare's network, identifying itself as `PotionBot`. If that fetch fails or the page yields nothing usable, the URL - and only the URL - is passed to Jina AI's Reader service, which fetches the page and returns its text. Jina AI GmbH is registered in Berlin; it does not publish where the Reader service runs. Its terms state that it stores inputs and outputs only to the extent required to provide the service, and does not use customer inputs to train its models.
+
+Every episode Potion narrates carries marks that say it was made by AI: a signed record inside the MP3 file (Content Credentials, the C2PA standard) that names the text-to-speech model, and, for standard voices, a watermark in the sound. Neither mark contains your name, your account, your feed or the episode's title. Potion signs the record itself. The only outside service involved is DigiCert's public time-stamping server, which receives a fingerprint of the signature and nothing else.
+
+When Potion adds these marks to an episode made before it began marking, it keeps a copy of the original file for 30 days in case the change has to be undone, then deletes it. Deleting the episode deletes the copy too.
 
 Legal basis: performance of a contract. Narrating text and reading an article are things you asked Potion to do.
 
@@ -250,6 +254,7 @@ We do not use cookies anywhere on withpotion.io.
 |---|---|
 | Account data | Duration of account, plus 30 days after deletion |
 | Audio files (R2), uploaded and generated | Deleted when episode or feed is deleted, or when account is closed |
+| Copies of episodes' original audio kept when they were marked | 30 days, or until the episode is deleted |
 | Text-to-speech usage records | Duration of account |
 | Render jobs, including the submitted or extracted text | Duration of account |
 | Sign-in attempts (connecting an assistant, or choosing a plan) | Purged 14 days after they lapse; removed with the account |
