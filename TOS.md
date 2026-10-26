@@ -1,7 +1,7 @@
 # Terms of Service
 
-**Version**: v1.10
-**Effective date**: October 21, 2026
+**Version**: v1.11
+**Effective date**: October 26, 2026
 
 These terms govern your use of Potion (withpotion.io), an RSS feed management API for AI agents. By verifying your email during signup, either by clicking the magic link or by entering the sign-in code we email you, you accept these terms.
 
@@ -28,7 +28,7 @@ Potion is an API. You (or an AI agent acting on your behalf) call API endpoints 
 
 Potion also speaks the Model Context Protocol at `api.withpotion.io/mcp`, so an assistant such as ChatGPT or Claude can be connected to your account and do the same things through that connection.
 
-There is no dashboard. The web pages Potion serves are the ones the service needs in order to work: the sign-in page you reach when connecting an assistant, the page an emailed link opens, a page where you sign in with an emailed code to choose a paid plan before paying through Stripe, a page a link in a free feed opens that shows the plan that fits your show and lets you pay through Stripe without signing in, a page that emails a subscriber a link to the Stripe billing page, the pages Stripe returns you to after checkout, the public page for a shared episode (Section 8), the page a feed's address shows when you open it in a web browser, which helps you add the feed to a podcast app, and a page of links to these terms and the Privacy Policy.
+There is no dashboard. The web pages Potion serves are the ones the service needs in order to work: the sign-in page you reach when connecting an assistant, the page an emailed link opens, a page where you sign in with an emailed code to choose a paid plan before paying through Stripe, a page that a link in a free feed, or on that feed's page in a browser, opens, which shows the plan that fits your show and lets you pay through Stripe without signing in, a page that emails a subscriber a link to the Stripe billing page, the pages Stripe returns you to after checkout, the public page for a shared episode (Section 8), the page a feed's address shows when you open it in a web browser, which helps you add the feed to a podcast app, and a page of links to these terms and the Privacy Policy.
 
 ---
 
@@ -61,7 +61,7 @@ The current prices are shown at `GET /plans` and at Stripe Checkout before you p
 
 When you reach a limit, the request is refused and the response says which limit you hit. Nothing is billed beyond your subscription; there is no overage charge on any tier.
 
-On the Free tier, Potion may add two kinds of note from Potion to the copy of your feed that podcast apps receive. Once you have used an hour of your free narration, the newest episode's show notes start with a line saying how much is left, with a link to a page that shows the plan that fits your show. When the free narration is used up, a short spoken notice from Potion appears in the feed as its own item, with the same link in its description. Potion does not change your episodes themselves, and the notes are not part of what you or your assistant see through the API or the connectors. They stop when your account moves to a paid plan, and the notice item goes away on its own after three weeks.
+On the Free tier, Potion may add two kinds of note from Potion to the copy of your feed that podcast apps receive, and shows the same information on the page your feed's address opens in a web browser. Once you have used an hour of your free narration, the newest episode's show notes start with a line saying how much is left, with a link to a page that shows the plan that fits your show. From the same point, the page your feed's address opens in a web browser says how much free narration is left, or that it is used up, with a link to that page. When the free narration is used up, a short spoken notice from Potion appears in the feed as its own item, with the same link in its description. Potion does not change your episodes themselves, and the notes are not part of what you or your assistant see through the API or the connectors. They stop when your account moves to a paid plan, and the notice item goes away on its own after three weeks.
 
 If a Free feed has had a new narrated episode on most days when the free narration runs out, Potion makes up to two more of its episodes anyway, so the show does not stop the next morning. These are made with the standard voices only, at the feed's usual length, and once per account. After them, narration on the Free tier stops until the plan changes.
 

@@ -1,7 +1,7 @@
 # Privacy Policy
 
 **Effective date**: February 23, 2026
-**Last updated**: October 24, 2026
+**Last updated**: October 26, 2026
 
 Potion (withpotion.io) is operated by 9592 Solutions UG (haftungsbeschrankt), Fahrstr. 217, 40221 Dusseldorf, Germany. We are the data controller for the personal data described in this policy.
 
@@ -13,7 +13,7 @@ Potion (withpotion.io) is operated by 9592 Solutions UG (haftungsbeschrankt), Fa
 
 Potion is an API for AI agents. Agents create RSS podcast feeds, upload audio episodes, have text narrated into audio, point Potion at articles to read aloud, and manage content. Humans subscribe to those feeds in their podcast apps. An assistant such as ChatGPT or Claude can also be connected to an account directly, over OAuth.
 
-There is no dashboard and no marketing platform. The web pages we serve are the ones the service needs in order to work: the magic link verification page shown after signup, the sign-in page you reach when connecting an assistant, a page where you sign in with an emailed code to choose a paid plan before paying through Stripe, a page a link in a free feed opens, which shows the plan that fits that show and lets you pay through Stripe without signing in, a page that emails a subscriber a link to the Stripe billing page, pages for confirming or withdrawing an email preference, the pages Stripe returns you to after checkout, the public page for a shared episode, the page a feed's address shows when it is opened in a web browser, a page of links to these documents at `/legal`, and two short introduction pages, at `/daily` and `/start`, for people who hear about Potion outside of an assistant.
+There is no dashboard and no marketing platform. The web pages we serve are the ones the service needs in order to work: the magic link verification page shown after signup, the sign-in page you reach when connecting an assistant, a page where you sign in with an emailed code to choose a paid plan before paying through Stripe, a page that a link in a free feed, or on that feed's page in a browser, opens, which shows the plan that fits that show and lets you pay through Stripe without signing in, a page that emails a subscriber a link to the Stripe billing page, pages for confirming or withdrawing an email preference, the pages Stripe returns you to after checkout, the public page for a shared episode, the page a feed's address shows when it is opened in a web browser, a page of links to these documents at `/legal`, and two short introduction pages, at `/daily` and `/start`, for people who hear about Potion outside of an assistant.
 
 This shapes what we collect: we have no browsing sessions and no typical web analytics. Almost everything we know about you comes from API calls made on your behalf. Three things sit outside that. We count a view against the episode when someone opens a shared episode page, and record nothing about the person who opened it. We log requests for your feeds and episodes against the feed, so we can tell whether anything is reaching a podcast app. And we count views and clicks on the introduction pages, with nothing about who they came from. All three are described below.
 
@@ -107,7 +107,7 @@ Legal basis: legitimate interest (Art. 6(1)(f)). We need to know whether feeds a
 
 ### The plan page and the links to it
 
-On the Free tier, the copy of your feed that podcast apps receive can carry a link to a page that shows the plan that fits your show (see the Terms, Section 4). The link is signed with a secret Potion holds and names your account, where it was placed (the show notes or the notice item) and when it expires, which is 60 days after it was made. It is not stored: Potion checks it by recomputing the signature. Anyone holding your feed's address can open the page, so the page shows only what a podcast app already shows of your feed - its name and artwork - plus how much you have narrated and the plan that fits it. It does not show your email address, and Stripe Checkout is not given it: whoever pays types their own.
+On the Free tier, the copy of your feed that podcast apps receive, and the page your feed's address opens in a web browser, can carry a link to a page that shows the plan that fits your show (see the Terms, Section 4). The link is signed with a secret Potion holds and names your account, where it was placed (the show notes, the notice item or the feed's page in a browser) and when it expires, which is 60 days after it was made. It is not stored: Potion checks it by recomputing the signature. Anyone holding your feed's address can open the page, so the page shows only what a podcast app already shows of your feed - its name and artwork - plus how much you have narrated and the plan that fits it. It does not show your email address, and Stripe Checkout is not given it: whoever pays types their own.
 
 A subscriber who opens that page is offered an email to their account's own address with a link to the Stripe billing page. That link works for an hour.
 
