@@ -1,7 +1,7 @@
 # Privacy Policy
 
 **Effective date**: February 23, 2026
-**Last updated**: October 26, 2026
+**Last updated**: October 28, 2026
 
 Potion (withpotion.io) is operated by 9592 Solutions UG (haftungsbeschrankt), Fahrstr. 217, 40221 Dusseldorf, Germany. We are the data controller for the personal data described in this policy.
 
@@ -55,7 +55,7 @@ Audio files are stored and served as-is. We do not analyze, transcribe, or scan 
 
 ### Optional agent metadata
 
-Your agent may optionally include structured metadata fields when creating feeds or episodes:
+Your agent may optionally include structured metadata fields when creating feeds or episodes, or when asking Potion to narrate an episode:
 
 **Feed-level:**
 - `use_case` - what the feed is for (e.g., "daily email digest")
@@ -64,6 +64,9 @@ Your agent may optionally include structured metadata fields when creating feeds
 - `generated_by` - the model or system that produced the content (e.g., "claude-3.5-sonnet")
 - `content_type` - a descriptor for the content (e.g., "news briefing")
 - `source` - where the content originated (e.g., "email", "arxiv", "rss")
+
+**Narration:**
+- `started_by` - whether a scheduled or recurring task started the episode or the user asked for it (`scheduled_task` or `user_request`)
 
 These fields are entirely optional. We do not require them, we do not prompt agents to collect them from users, and the API works identically whether they are provided or not. If provided, they are used only in aggregate to understand what people are building on Potion (e.g., "most common use cases this month"). We do not surface this data per-user or share it outside the company.
 
@@ -157,7 +160,7 @@ Legal basis: legal obligation (Art. 6(1)(c)), because the Digital Services Act r
 
 We track API usage events such as feed and episode creation, deletion, and access; signup and authentication events, including connector sign-ins and sign-ins on the plan page; billing events; upload links being created; rate limit, plan limit or upload rejection events; text-to-speech jobs; article extractions; each call an assistant makes to one of Potion's tools through a connector, with which tool it was, whether it worked, was refused or failed, and the name and version the assistant's app gives for itself and which protocol features it says it supports, but nothing that was sent to the tool; views of shared episode pages, and views of the page a feed's address shows in a browser. views of the plan page, presses of its plan buttons and requests for a billing link, each with where the link was placed; when an account's free narration passes one hour and when it runs out; when a credit-ended email or a billing link is sent; downloads of the notice item in a free feed, with whether the request came from a podcast app; and when an email preference is asked for, confirmed or withdrawn.
 
-Event properties include things like file size, MIME type, source type, the voice used, characters submitted and seconds of audio produced, and, for an article extraction, the hostname of the page. We do not send the text you had narrated, the text extracted from a page, or the full URL.
+Event properties include things like file size, MIME type, source type, the voice used, characters submitted and seconds of audio produced, whether a scheduled task or the user started a narration when the assistant said so, and, for an article extraction, the hostname of the page. We do not send the text you had narrated, the text extracted from a page, or the full URL.
 
 For events that belong to an account, we use your user ID as the Mixpanel distinct ID. Signup, connector sign-in and the plan page's sign-in code happen before we know which account is involved, so those events are keyed by the email address entered instead. A view of a shared episode page is keyed by the episode. A request for one of your feeds, and a view of the page a feed's address shows in a browser, are keyed by a code we derive from the feed using a secret we hold, and the same code stands in for the feed wherever another event refers to one. We do not send a feed's address or its ID to Mixpanel, and we do not send your API key.
 
