@@ -1,7 +1,7 @@
 # Privacy Policy
 
 **Effective date**: February 23, 2026
-**Last updated**: October 28, 2026
+**Last updated**: October 29, 2026
 
 Potion (withpotion.io) is operated by 9592 Solutions UG (haftungsbeschrankt), Fahrstr. 217, 40221 Dusseldorf, Germany. We are the data controller for the personal data described in this policy.
 
@@ -13,7 +13,7 @@ Potion (withpotion.io) is operated by 9592 Solutions UG (haftungsbeschrankt), Fa
 
 Potion is an API for AI agents. Agents create RSS podcast feeds, upload audio episodes, have text narrated into audio, point Potion at articles to read aloud, and manage content. Humans subscribe to those feeds in their podcast apps. An assistant such as ChatGPT or Claude can also be connected to an account directly, over OAuth.
 
-There is no dashboard and no marketing platform. The web pages we serve are the ones the service needs in order to work: the magic link verification page shown after signup, the sign-in page you reach when connecting an assistant, a page where you sign in with an emailed code to choose a paid plan before paying through Stripe, a page that a link in a free feed, or on that feed's page in a browser, opens, which shows the plan that fits that show and lets you pay through Stripe without signing in, a page that emails a subscriber a link to the Stripe billing page, pages for confirming or withdrawing an email preference, the pages Stripe returns you to after checkout, the public page for a shared episode, the page a feed's address shows when it is opened in a web browser, a page of links to these documents at `/legal`, and two short introduction pages, at `/daily` and `/start`, for people who hear about Potion outside of an assistant.
+There is no dashboard and no marketing platform. The web pages we serve are the ones the service needs in order to work: the magic link verification page shown after signup, the sign-in page you reach when connecting an assistant, which also has a box for emails that help you get started if you want them, a page where you sign in with an emailed code to choose a paid plan before paying through Stripe, a page that a link in a free feed, or on that feed's page in a browser, opens, which shows the plan that fits that show and lets you pay through Stripe without signing in, a page that emails a subscriber a link to the Stripe billing page, pages for confirming or withdrawing an email preference, the pages Stripe returns you to after checkout, the public page for a shared episode, the page a feed's address shows when it is opened in a web browser, a page of links to these documents at `/legal`, and two short introduction pages, at `/daily` and `/start`, for people who hear about Potion outside of an assistant.
 
 This shapes what we collect: we have no browsing sessions and no typical web analytics. Almost everything we know about you comes from API calls made on your behalf. Three things sit outside that. We count a view against the episode when someone opens a shared episode page, and record nothing about the person who opened it. We log requests for your feeds and episodes against the feed, so we can tell whether anything is reaching a podcast app. And we count views and clicks on the introduction pages, with nothing about who they came from. All three are described below.
 
@@ -120,19 +120,22 @@ Legal basis: performance of a contract, for showing your plan and starting a che
 
 ### Emails about your account
 
-Besides sign-in codes and confirmation links, Potion sends three kinds of email about an account:
+Besides sign-in codes and confirmation links, Potion sends four kinds of email about an account:
 
 - once, when the free narration runs out: what happened and what still works. It mentions no plan and no price.
 - when a subscriber asks for it from the plan page or at `api.withpotion.io/billing`: a link to the Stripe billing page.
-- when someone ticks the email preference on the plan page: a request to confirm it, sent to the account's own address.
+- when someone ticks one of the email preferences, on the plan page or on the sign-in page: a request to confirm it, sent to the account's own address.
+- when a fault on Potion's side stopped something you tried to do, such as narration or an upload that failed: a note saying what went wrong, that it is fixed and how to try again. It goes once for each such fault and mentions no plan and no price.
 
-We keep a record of which of these was sent to an account and when, without its content, so the first is sent only once and the others cannot be sent to an address over and over by someone else.
+We keep a record of which of these was sent to an account and when, without its content, so the credit notice is sent only once and the others cannot be sent to an address over and over by someone else.
 
 Legal basis: performance of a contract.
 
 ### The email preference
 
-The plan page has a box to tick for emails about narration running out and about Potion's plans. Ticking it sends the account's address a request to confirm, because the plan page can be opened by anyone holding the feed's address. Only a confirmed preference counts. We store the exact wording you agreed to and its version, where you ticked it, when you asked and when you confirmed. You can withdraw it at any time with the link in any such email, or by writing to christo@withpotion.io; the record of the withdrawal is kept with it. No email of this kind is sent today.
+The plan page has a box to tick for emails about narration running out and about Potion's plans. Ticking it sends the account's address a request to confirm, because the plan page can be opened by anyone holding the feed's address. Only a confirmed preference counts. We store the exact wording you agreed to and its version, where you ticked it, when you asked and when you confirmed. You can withdraw it at any time with the link in any such email, or by writing to christo@withpotion.io; the record of the withdrawal is kept with it.
+
+When you sign in you can also tick a box for setup help. If you confirm it, Potion sends you at most three short notes in your first month, each only if it still applies: how to make a first episode if you haven't made one, and how to make the next part of something you started. They mention no plan and no price, they stop once you have a show running, and every one has a link to stop them. We store the same record as for the plan emails. One unsubscribe link, or an email to christo@withpotion.io, stops both kinds. Neither kind of email is sent today.
 
 Legal basis: consent (Art. 6(1)(a)) for the emails; legal obligation and legitimate interest (Art. 6(1)(c) and (f)) for keeping the record, so we can show what was agreed.
 
@@ -158,7 +161,7 @@ Legal basis: legal obligation (Art. 6(1)(c)), because the Digital Services Act r
 
 ### Analytics (Mixpanel)
 
-We track API usage events such as feed and episode creation, deletion, and access; signup and authentication events, including connector sign-ins and sign-ins on the plan page; billing events; upload links being created; rate limit, plan limit or upload rejection events; text-to-speech jobs; article extractions; each call an assistant makes to one of Potion's tools through a connector, with which tool it was, whether it worked, was refused or failed, and the name and version the assistant's app gives for itself and which protocol features it says it supports, but nothing that was sent to the tool; views of shared episode pages, and views of the page a feed's address shows in a browser. views of the plan page, presses of its plan buttons and requests for a billing link, each with where the link was placed; when an account's free narration passes one hour and when it runs out; when a credit-ended email or a billing link is sent; downloads of the notice item in a free feed, with whether the request came from a podcast app; and when an email preference is asked for, confirmed or withdrawn.
+We track API usage events such as feed and episode creation, deletion, and access; signup and authentication events, including connector sign-ins, with whether the setup-help box was ticked, and sign-ins on the plan page; billing events; upload links being created; rate limit, plan limit or upload rejection events; text-to-speech jobs; article extractions; each call an assistant makes to one of Potion's tools through a connector, with which tool it was, whether it worked, was refused or failed, and the name and version the assistant's app gives for itself and which protocol features it says it supports, but nothing that was sent to the tool; views of shared episode pages, and views of the page a feed's address shows in a browser. views of the plan page, presses of its plan buttons and requests for a billing link, each with where the link was placed; when an account's free narration passes one hour and when it runs out; when a credit-ended email or a billing link is sent; downloads of the notice item in a free feed, with whether the request came from a podcast app; and when an email preference is asked for, confirmed or withdrawn, with which box it came from.
 
 Event properties include things like file size, MIME type, source type, the voice used, characters submitted and seconds of audio produced, whether a scheduled task or the user started a narration when the assistant said so, and, for an article extraction, the hostname of the page. We do not send the text you had narrated, the text extracted from a page, or the full URL.
 
