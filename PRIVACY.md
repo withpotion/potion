@@ -1,7 +1,7 @@
 # Privacy Policy
 
 **Effective date**: February 23, 2026
-**Last updated**: October 29, 2026
+**Last updated**: October 31, 2026
 
 Potion (withpotion.io) is operated by 9592 Solutions UG (haftungsbeschrankt), Fahrstr. 217, 40221 Dusseldorf, Germany. We are the data controller for the personal data described in this policy.
 
@@ -224,7 +224,7 @@ Anthropic and OpenAI also receive data from our own use of their AI tools, descr
 
 ## RSS feeds
 
-RSS feeds are served at secret URLs. The URL is unguessable - it contains a nanoid with sufficient entropy to be practically private. There is no authentication on the RSS endpoint by design, so podcast apps can subscribe directly.
+Each feed has its own address. The address is long and random, so it can't realistically be guessed, but a feed is unlisted, not private. There is no password, so podcast apps can subscribe directly, and anyone who has the address can read the feed and play its episodes. The address of each audio file Potion hosts contains the feed's identifier, so passing on one such address passes on the whole feed. Potion does not offer a way to change a feed's address, and deleting the feed is the only way to stop an address working.
 
 Every feed carries the standard tags that ask podcast directories not to list it publicly (`itunes:block` and `podcast:block`).
 

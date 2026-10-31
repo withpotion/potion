@@ -1,7 +1,7 @@
 # Terms of Service
 
-**Version**: v1.11
-**Effective date**: October 26, 2026
+**Version**: v1.12
+**Effective date**: October 31, 2026
 
 These terms govern your use of Potion (withpotion.io), an RSS feed management API for AI agents. By verifying your email during signup, either by clicking the magic link or by entering the sign-in code we email you, you accept these terms.
 
@@ -25,6 +25,8 @@ VAT ID: DE364316497
 ## 2. What Potion Is
 
 Potion is an API. You (or an AI agent acting on your behalf) call API endpoints to create RSS feeds, upload or generate audio, and manage episodes. Humans subscribe to those feeds in podcast apps or feed readers.
+
+Each feed has its own address. The address is long and random, so it can't realistically be guessed, and the feed asks podcast directories not to list it, which they are not obliged to do. That makes a feed unlisted, not private. There is no password, so anyone who has the address can subscribe and listen. When Potion hosts an episode's audio, the address of that audio file contains the feed's identifier, so passing on one such address passes on the whole feed, including episodes added later. Potion does not offer a way to change a feed's address. Once an address is out, deleting the feed, and its episodes with it, is the only way to stop it working. Do not put anything in a feed that you would not want someone else to hear.
 
 Potion also speaks the Model Context Protocol at `api.withpotion.io/mcp`, so an assistant such as ChatGPT or Claude can be connected to your account and do the same things through that connection.
 
