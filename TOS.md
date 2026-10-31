@@ -17,7 +17,7 @@ Fahrstr. 217
 
 Managing Director: Christo Wilken
 Email: christo@withpotion.io
-Commercial Register: Amtsgericht Dusseldorf, HRB 287814
+Commercial Register: Amtsgericht Munchen, HRB 287814
 VAT ID: DE364316497
 
 ---
@@ -243,7 +243,7 @@ E-Mail: christo@withpotion.io
 
 **Registereintrag:**
 Eintragung im Handelsregister.
-Registergericht: Amtsgericht Dusseldorf
+Registergericht: Amtsgericht Munchen
 Registernummer: HRB 287814
 
 **Umsatzsteuer-ID:**
