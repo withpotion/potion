@@ -1,7 +1,7 @@
 # Privacy Policy
 
 **Effective date**: February 23, 2026
-**Last updated**: October 31, 2026
+**Last updated**: November 2, 2026
 
 Potion (withpotion.io) is operated by 9592 Solutions UG (haftungsbeschrankt), Fahrstr. 217, 40221 Dusseldorf, Germany. We are the data controller for the personal data described in this policy.
 
@@ -120,14 +120,15 @@ Legal basis: performance of a contract, for showing your plan and starting a che
 
 ### Emails about your account
 
-Besides sign-in codes and confirmation links, Potion sends four kinds of email about an account:
+Besides sign-in codes and confirmation links, Potion sends five kinds of email about an account:
 
 - once, when the free narration runs out: what happened and what still works. It mentions no plan and no price.
 - when a subscriber asks for it from the plan page or at `api.withpotion.io/billing`: a link to the Stripe billing page.
 - when someone ticks one of the email preferences, on the plan page or on the sign-in page: a request to confirm it, sent to the account's own address.
 - when a fault on Potion's side stopped something you tried to do, such as narration or an upload that failed: a note saying what went wrong, that it is fixed and how to try again. It goes once for each such fault and mentions no plan and no price.
+- when a feed that had a new episode on most days has had none for more than two days: that it stopped, and where a paused scheduled task can be turned back on, in the assistant the account connects through when there is only one. We work this out from when the feed's episodes and narration requests were made, and which assistant it is from the name that assistant registered when it connected. It is sent at most once each time a show stops and at most once in 14 days, and it mentions no plan and no price.
 
-We keep a record of which of these was sent to an account and when, without its content, so the credit notice is sent only once and the others cannot be sent to an address over and over by someone else.
+We keep a record of which of these was sent to an account and when, without its content, so the credit notice is sent only once, the last is not repeated while a show stays stopped, and the others cannot be sent to an address over and over by someone else.
 
 Legal basis: performance of a contract.
 
