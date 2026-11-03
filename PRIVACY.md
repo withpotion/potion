@@ -1,7 +1,7 @@
 # Privacy Policy
 
 **Effective date**: February 23, 2026
-**Last updated**: November 2, 2026
+**Last updated**: November 3, 2026
 
 Potion (withpotion.io) is operated by 9592 Solutions UG (haftungsbeschrankt), Fahrstr. 217, 40221 Dusseldorf, Germany. We are the data controller for the personal data described in this policy.
 
@@ -216,6 +216,7 @@ We share data with the following processors:
 | DeepInfra | Text-to-speech, standard voices | United States |
 | OpenAI | Text-to-speech, premium voices | United States |
 | Jina AI | Article extraction, fallback only | Germany (company registration) |
+| Backblaze | Encrypted backups, which it cannot read | EU (Netherlands) |
 
 Each processor in this table is engaged under data processing terms covering the service we use. International transfers rely on the EU-US Data Privacy Framework and/or Standard Contractual Clauses (SCCs).
 
@@ -278,6 +279,7 @@ We do not use cookies anywhere on withpotion.io.
 | Records of account emails sent (kind and time, no content) | Duration of account |
 | Email preferences, with the wording agreed to and its confirmation or withdrawal | Duration of account, plus 3 years after withdrawal or deletion |
 | The notice item's audio, and the record that the free narration ran out | Duration of account |
+| Encrypted backups of the database | 14 days |
 
 ---
 
