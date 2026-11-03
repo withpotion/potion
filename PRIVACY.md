@@ -279,7 +279,8 @@ We do not use cookies anywhere on withpotion.io.
 | Records of account emails sent (kind and time, no content) | Duration of account |
 | Email preferences, with the wording agreed to and its confirmation or withdrawal | Duration of account, plus 3 years after withdrawal or deletion |
 | The notice item's audio, and the record that the free narration ran out | Duration of account |
-| Encrypted backups of the database | 14 days |
+| Encrypted backups of the database, at Neon and Backblaze | 14 days |
+| Encrypted backup copies of audio files | 14 days after the audio is deleted |
 
 ---
 
