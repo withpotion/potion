@@ -1,7 +1,7 @@
 # Privacy Policy
 
 **Effective date**: February 23, 2026
-**Last updated**: November 3, 2026
+**Last updated**: November 4, 2026
 
 Potion (withpotion.io) is operated by 9592 Solutions UG (haftungsbeschrankt), Fahrstr. 217, 40221 Dusseldorf, Germany. We are the data controller for the personal data described in this policy.
 
@@ -13,9 +13,9 @@ Potion (withpotion.io) is operated by 9592 Solutions UG (haftungsbeschrankt), Fa
 
 Potion is an API for AI agents. Agents create RSS podcast feeds, upload audio episodes, have text narrated into audio, point Potion at articles to read aloud, and manage content. Humans subscribe to those feeds in their podcast apps. An assistant such as ChatGPT or Claude can also be connected to an account directly, over OAuth.
 
-There is no dashboard and no marketing platform. The web pages we serve are the ones the service needs in order to work: the magic link verification page shown after signup, the sign-in page you reach when connecting an assistant, which also has a box for emails that help you get started if you want them, a page where you sign in with an emailed code to choose a paid plan before paying through Stripe, a page that a link in a free feed, or on that feed's page in a browser, opens, which shows the plan that fits that show and lets you pay through Stripe without signing in, a page that emails a subscriber a link to the Stripe billing page, pages for confirming or withdrawing an email preference, the pages Stripe returns you to after checkout, the public page for a shared episode, the page a feed's address shows when it is opened in a web browser, a page of links to these documents at `/legal`, and two short introduction pages, at `/daily` and `/start`, for people who hear about Potion outside of an assistant.
+There is no dashboard and no marketing platform. Our website at `withpotion.io` has a homepage, which shows the same page as `/start`, and guides and other pages about using Potion with an assistant. Besides those, the web pages we serve are the ones the service needs in order to work: the magic link verification page shown after signup, the sign-in page you reach when connecting an assistant, which also has a box for emails that help you get started if you want them, a page where you sign in with an emailed code to choose a paid plan before paying through Stripe, a page that a link in a free feed, or on that feed's page in a browser, opens, which shows the plan that fits that show and lets you pay through Stripe without signing in, a page that emails a subscriber a link to the Stripe billing page, pages for confirming or withdrawing an email preference, the pages Stripe returns you to after checkout, the public page for a shared episode, the page a feed's address shows when it is opened in a web browser, a page of links to these documents at `/legal`, and two short introduction pages, at `/daily` and `/start`, for people who hear about Potion outside of an assistant.
 
-This shapes what we collect: we have no browsing sessions and no typical web analytics. Almost everything we know about you comes from API calls made on your behalf. Three things sit outside that. We count a view against the episode when someone opens a shared episode page, and record nothing about the person who opened it. We log requests for your feeds and episodes against the feed, so we can tell whether anything is reaching a podcast app. And we count views and clicks on the introduction pages, with nothing about who they came from. All three are described below.
+This shapes what we collect: we have no browsing sessions and no typical web analytics. Almost everything we know about you comes from API calls made on your behalf. Three things sit outside that. We count a view against the episode when someone opens a shared episode page, and record nothing about the person who opened it. We log requests for your feeds and episodes against the feed, so we can tell whether anything is reaching a podcast app. And we count views and clicks on the introduction pages and the homepage, and clicks on the buttons in our guides, with nothing about who they came from. All three are described below.
 
 ---
 
@@ -142,11 +142,13 @@ Legal basis: consent (Art. 6(1)(a)) for the emails; legal obligation and legitim
 
 ### The introduction pages
 
-Potion serves two short introduction pages, at `api.withpotion.io/daily` and `api.withpotion.io/start`, for people who hear about it in a video or a post rather than through an assistant. Opening a page counts a view, and pressing one of its buttons counts a press. A link to either page can carry a campaign label, such as a video id, and the label is stored with the count.
+Potion serves two short introduction pages, at `api.withpotion.io/daily` and `api.withpotion.io/start`, for people who hear about it in a video or a post rather than through an assistant. The `/start` page is also the homepage at `withpotion.io`. Opening a page counts a view, and pressing one of its buttons counts a press. A link to either page can carry a campaign label, such as a video id, and the label is stored with the count. A view of the homepage that comes without a label is stored with the label `root`.
+
+The guides and other pages on `withpotion.io` end with the same three buttons as `/start`: ChatGPT, Claude, and I use another assistant. Pressing one of them counts a press exactly as it does on `/start`, labelled with the page the button was on. Opening one of those pages counts nothing, and neither does pressing a Copy button on them.
 
 A record from `/daily` holds the event, the label, which assistant the button led to, and the time.
 
-A record from `/start` holds the same, plus three more things. The first is which button was pressed, including the button that copies a prompt to paste into another assistant. The second is whether the visitor was on a phone or a computer, which we read from the browser's User-Agent and keep only as one of those two words. The third is how long after the page opened the button was pressed, kept only as one of four ranges (under 10 seconds, 10 to 30 seconds, 30 seconds to 2 minutes, longer). The browser works out the range and sends only that, so no finer timing reaches us.
+A record from `/start` holds the same, plus three more things. The first is which button was pressed, including the button that copies a prompt to paste into another assistant. The second is whether the visitor was on a phone or a computer, which we read from the browser's User-Agent and keep only as one of those two words. The third is how long after the page opened the button was pressed, on `/start` or on the guide the button was on, kept only as one of four ranges (under 10 seconds, 10 to 30 seconds, 30 seconds to 2 minutes, longer). The browser works out the range and sends only that, so no finer timing reaches us.
 
 A record from `/start` also holds the visitor's country. Cloudflare, which runs our servers, works out the country from the IP address before the request reaches our code, and we store only the two-letter country code. Our code never reads or stores the IP address itself.
 
@@ -250,7 +252,7 @@ A shared episode page plays its audio through the page's own address rather than
 
 ## Cookies and tracking
 
-None of the pages listed under What Potion is sets a cookie, stores anything in your browser, or loads external scripts or tracking pixels. Each is a self-contained HTML page served directly from our Worker. The only things any of them may fetch from elsewhere are a feed's or a shared episode's artwork, and an episode's audio when that audio is hosted somewhere other than Potion. The page a feed's address shows can also place that address on your clipboard, when you press its copy button or its Apple Podcasts button.
+None of the pages listed under What Potion is sets a cookie, stores anything in your browser, or loads external scripts or tracking pixels. Each is a self-contained HTML page served directly from our Worker. The only things any of them may fetch from elsewhere are a feed's or a shared episode's artwork, and an episode's audio when that audio is hosted somewhere other than Potion. The page a feed's address shows can also place that address on your clipboard, when you press its copy button or its Apple Podcasts button. The `/start` page and our guides can place a prompt on your clipboard when you press a Copy button, so you can paste it into an assistant. On `/start` that press is counted, as described under The introduction pages. On a guide it is not counted.
 
 We do not use cookies anywhere on withpotion.io.
 

@@ -1,7 +1,7 @@
 # Terms of Service
 
-**Version**: v1.12
-**Effective date**: October 31, 2026
+**Version**: v1.13
+**Effective date**: November 4, 2026
 
 These terms govern your use of Potion (withpotion.io), an RSS feed management API for AI agents. By verifying your email during signup, either by clicking the magic link or by entering the sign-in code we email you, you accept these terms.
 
@@ -30,7 +30,7 @@ Each feed has its own address. The address is long and random, so it can't reali
 
 Potion also speaks the Model Context Protocol at `api.withpotion.io/mcp`, so an assistant such as ChatGPT or Claude can be connected to your account and do the same things through that connection.
 
-There is no dashboard. The web pages Potion serves are the ones the service needs in order to work: the sign-in page you reach when connecting an assistant, the page an emailed link opens, a page where you sign in with an emailed code to choose a paid plan before paying through Stripe, a page that a link in a free feed, or on that feed's page in a browser, opens, which shows the plan that fits your show and lets you pay through Stripe without signing in, a page that emails a subscriber a link to the Stripe billing page, the pages Stripe returns you to after checkout, the public page for a shared episode (Section 8), the page a feed's address shows when you open it in a web browser, which helps you add the feed to a podcast app, and a page of links to these terms and the Privacy Policy.
+There is no dashboard. Potion's website at `withpotion.io` has a homepage that introduces Potion, and guides and other pages about using Potion with an assistant. Besides those, the web pages Potion serves are the ones the service needs in order to work: the sign-in page you reach when connecting an assistant, the page an emailed link opens, a page where you sign in with an emailed code to choose a paid plan before paying through Stripe, a page that a link in a free feed, or on that feed's page in a browser, opens, which shows the plan that fits your show and lets you pay through Stripe without signing in, a page that emails a subscriber a link to the Stripe billing page, the pages Stripe returns you to after checkout, the public page for a shared episode (Section 8), the page a feed's address shows when you open it in a web browser, which helps you add the feed to a podcast app, and a page of links to these terms and the Privacy Policy.
 
 ---
 
