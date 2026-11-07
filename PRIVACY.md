@@ -1,7 +1,7 @@
 # Privacy Policy
 
 **Effective date**: February 23, 2026
-**Last updated**: November 4, 2026
+**Last updated**: November 7, 2026
 
 Potion (withpotion.io) is operated by 9592 Solutions UG (haftungsbeschrankt), Fahrstr. 217, 40221 Dusseldorf, Germany. We are the data controller for the personal data described in this policy.
 
@@ -154,7 +154,11 @@ A record from `/start`, or from one of the guides and other pages, holds the sam
 
 These records also hold the visitor's country. Cloudflare, which runs our servers, works out the country from the IP address before the request reaches our code, and we store only the two-letter country code. Our code never reads or stores the IP address itself.
 
-There is no cookie and no visitor identifier on any of these pages, so a view cannot be tied to the press that follows it, to another visit, or to any account. The records can say how many views a given video or page produced, from which countries and on which kind of device, and how many presses followed. They cannot say anything about a person.
+There is no cookie and no visitor identifier on any of these pages, so a view cannot be tied to the press that follows it or to another visit. The records can say how many views a given video or page produced, from which countries and on which kind of device, and how many presses followed.
+
+To estimate whether a video or a guide leads people to sign up, we also count how many Potion accounts were created within an hour after a press, through the same AI assistant (ChatGPT or Claude) that the button opened. We work the count out from the time of each press, the time each account was created and the assistant each account connected through, and each account counts at most once. We save only the resulting number for each label (the video or page the link came from) and day. We do not record which account it was, and nothing is added to the account. The press records and the account creation times are kept as described under Data retention, so the count can be worked out again from them.
+
+When only a few people have pressed a button, someone inside our company could use the count and an account's creation time to work out which press came before a particular sign-up, and so which video or page that person came from, their country, their kind of device and roughly how long they stayed on the page. We do not look up which account a count belongs to, we use these counts only inside our company, and we never publish them per label.
 
 Legal basis: legitimate interest (Art. 6(1)(f)). We need to know whether telling people about Potion in a video or a guide brings anyone to it, and which parts of the page they use.
 
